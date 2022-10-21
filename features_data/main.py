@@ -1,8 +1,8 @@
 from os.path import exists
 from sklearn.metrics import mean_absolute_error, r2_score
 from sklearn.model_selection import train_test_split
-from feature_collector import create_features_file
-from indicator_feature_functions import *
+from indicator_getters.feature_collector import create_features_file
+from indicator_getters.indicator_feature_functions import *
 import plotly as py
 from plotly import subplots
 import plotly.graph_objs as go

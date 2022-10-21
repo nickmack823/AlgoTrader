@@ -1,10 +1,10 @@
 import sys
 import time
 from datetime import datetime, timedelta
-from MLModel import MLModel
+from model_classes.MLModel import MLModel
 import tpqoa
 import pandas as pd
-from indicators import IndicatorCalculator
+from indicator_getters.indicators import IndicatorCalculator
 
 
 model_features = ['paverage2close', 'proc15close']

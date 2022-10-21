@@ -1,10 +1,11 @@
 import sys
 import time
 from datetime import datetime, timedelta
-from MLModel import MLModel
+from model_classes.MLModel import MLModel
 import tpqoa
 import pandas as pd
-from indicators import IndicatorCalculator
+from indicator_getters.indicators import IndicatorCalculator
+
 
 class Trader(tpqoa.tpqoa):
 
@@ -113,6 +114,32 @@ class Trader(tpqoa.tpqoa):
         print('Historical data retrieved and features calculated.')
         print('\nWaiting for current candle to close...')
 
+    def on_success(self, time, bid, ask):
+        """After successful streaming of tick data, stores data into class DataFrame"""
+        success_data = {'bid': bid, 'ask': ask, 'mid': (ask + bid) / 2}
+        df = pd.DataFrame(success_data, index=[pd.to_datetime(time)])
+        self.tick_data = self.tick_data.append(df)
+
+        # If a time longer than timeframe has elapsed between last full bar and most recent tick, resample to get
+        # most recently completed bar data
+        recent_tick = pd.to_datetime(time)
+
+        # # NOTE: OANDA time is 4 hours ahead (GMT+0)
+        if recent_tick.time() >= pd.to_datetime("17:00").time():  # Stop trading at 1pm EST
+            self.terminate_session('Reached end of trading hours.')
+
+        # Check for stop loss/take profit triggers
+        self.check_price_triggers()
+
+        if recent_tick - self.last_bar > self.timeframe:
+            print('Candle closed, doing stuff...')
+            self.get_recent_bar()  # Get recently closed candle data
+            self.check_strategy()  # Check for model/strategy trigger
+            self.execute_trades()  # Apply model/strategy decision
+            self.set_stop_loss(trailing=True)  # Set stop loss
+            self.update_units()  # Update number of units used
+            print(f'Current Position: {self.position} | SL: {self.stop_loss} | TP: {self.take_profit}')
+
     def get_model(self):
         print('Getting model...')
         yesterday = datetime.now() - timedelta(days=1)
@@ -145,32 +172,6 @@ class Trader(tpqoa.tpqoa):
                 self.prediction = 1
             elif trend == 'down' and macd_back_one > signal_back_one and macd < signal:
                 self.prediction = -1
-
-    def on_success(self, time, bid, ask):
-        """After successful streaming of tick data, stores data into class DataFrame"""
-        success_data = {'bid': bid, 'ask': ask, 'mid': (ask + bid) / 2}
-        df = pd.DataFrame(success_data, index=[pd.to_datetime(time)])
-        self.tick_data = self.tick_data.append(df)
-
-        # If a time longer than timeframe has elapsed between last full bar and most recent tick, resample to get
-        # most recently completed bar data
-        recent_tick = pd.to_datetime(time)
-
-        # # NOTE: OANDA time is 4 hours ahead (GMT+0)
-        if recent_tick.time() >= pd.to_datetime("17:00").time():  # Stop trading at 1pm EST
-            self.terminate_session('Reached end of trading hours.')
-
-        # Check for stop loss/take profit triggers
-        self.check_price_triggers()
-
-        if recent_tick - self.last_bar > self.timeframe:
-            print('Candle closed, doing stuff...')
-            self.get_recent_bar()  # Get recently closed candle data
-            self.check_strategy()  # Check for model/strategy trigger
-            self.execute_trades()  # Apply model/strategy decision
-            self.set_stop_loss(trailing=True)  # Set stop loss
-            self.update_units()  # Update number of units used
-            print(f'Current Position: {self.position} | SL: {self.stop_loss} | TP: {self.take_profit}')
 
     def check_price_triggers(self):
         # Check for stop loss trigger
