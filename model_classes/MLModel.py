@@ -27,7 +27,7 @@ class MLModel:
     def get_data(self):
         ''' Imports the data from five_minute_pairs.csv (source can be changed).'''
         print(f'Getting data: instrument={self.symbol}, start={self.start}, end={self.end}, timeframe={self.timeframe}')
-        api = tpqoa.tpqoa('oanda.cfg')
+        api = tpqoa.tpqoa('../oanda.cfg')
         mid = api.get_history(instrument=self.symbol, start=self.start, end=self.end, granularity=self.timeframe,
                               price='M')
         bid = api.get_history(instrument=self.symbol, start=self.start, end=self.end, granularity=self.timeframe,

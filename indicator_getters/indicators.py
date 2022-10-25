@@ -1,3 +1,5 @@
+import os
+
 import tpqoa
 import pandas as pd
 import pandas_ta as ta
@@ -24,7 +26,10 @@ class IndicatorCalculator:
             'stdev': self.stdev,
             'atr': self.atr,
             'rsi': self.rsi,
-            'adosc': self.adosc}
+            'adosc': self.adosc,
+            'adx': self.adx,
+            'chaikin': self.chaikin
+        }
 
     def display_data(self):
         print(self.data.columns)
@@ -116,15 +121,20 @@ class IndicatorCalculator:
             self.data.ta.adosc(length=period, append=True)
 
     def vol_profile(self):
-        help(ta.vp)
         self.data.ta.vp(append=True)
+
+    def adx(self):
+        self.data.ta.adx(append=True)
+
+    def chaikin(self):
+        self.data.ta.cmf(append=True)
 
     def calculate_features(self, features=None):
         if features is None:
             print('Calculating all features...')
             functions = [self.paverage, self.stochastic, self.proc, self.macd, self.momentum, self.bollinger,
                          self.williams, self.sinewave, self.cci, self.slope, self.ema, self.sma, self.vwap,
-                         self.stdev, self.atr, self.rsi, self.adosc]
+                         self.stdev, self.atr, self.rsi, self.adosc, self.adx, self.chaikin]
         else:
             print(f'Calculating features: {features}')
             functions = []
@@ -135,6 +145,8 @@ class IndicatorCalculator:
 
         for func in functions:
             func()
+
+        self.display_data()
         print('Features calculated.')
 
     def get_data(self):
