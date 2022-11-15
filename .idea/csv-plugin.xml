@@ -3,7 +3,84 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
+        <entry key="\backtesting\tests\2012-10-01 to 2022-10-21\EUR_USD-2012-10-01 to 2022-10-21-model_adx-model 2000-01-01 to 2022-10-22-optimization.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\2012-10-01 to 2022-10-21\EUR_USD-2022-10-01 to 2022-10-21-macd_solo-optimization.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\2022-10-01 to 2022-10-21\EUR_USD-2022-10-01 to 2022-10-21-macd_solo-optimization.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\2022-10-01 to 2022-10-21\EUR_USD-2022-10-01 to 2022-10-21-model_adx-optimization.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\2022-10-01 to 2022-10-21\EUR_USD-2022-10-01 to 2022-10-21-model_adx_macd-model 2000-01-01 to 2022-10-25-optimization.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\2022-10-01 to 2022-10-21\EUR_USD-2022-10-01 to 2022-10-21-model_chaikin-optimization.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\2022-10-20 to 2022-10-25\EUR_USD-2022-10-20 to 2022-10-25-model_adx-model 2000-01-01 to 2022-10-22-optimization.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\2022-10-24 to 2022-10-25\EUR_USD-2022-10-24 to 2022-10-25-model_adx-model 2000-01-01 to 2022-10-22-optimization.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\forex_data\EUR_USD_2022-10-01_2022-10-21_M5_features.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\forex_data\EUR_USD_2022-10-01_2022-10-25_H1.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\forex_data\EUR_USD_2022-10-20_2022-10-25_M5_features.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\model_adx_demo_trades.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

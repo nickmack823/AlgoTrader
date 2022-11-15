@@ -1,4 +1,5 @@
 import itertools
+import sys
 from datetime import datetime, timedelta
 
 import pandas as pd
@@ -56,22 +57,22 @@ class IterativeBacktest(IterativeBase):
     def set_stop_loss(self, bar):
         atr = self.data['ATRr_14'].iloc[bar]
         price = self.data['close'].iloc[bar]
-        trailing = self.parameters['trailing_sl']
+        # trailing = self.parameters['trailing_sl']
         # Initial stop loss
-        if not trailing:
-            if self.position == 1:
-                self.stop_loss = price - (atr * self.parameters['atr_sl'])
-            elif self.position == -1:
-                self.stop_loss = price + (atr * self.parameters['atr_sl'])
+        # if not trailing:
+        #     if self.position == 1:
+        #         self.stop_loss = price - (atr * self.parameters['atr_sl'])
+        #     elif self.position == -1:
+        #         self.stop_loss = price + (atr * self.parameters['atr_sl'])
         # Trailing stop loss updates if price moves favorably
-        else:
-            price_back_two_bars = self.data['close'].iloc[bar - 1]
-            if self.position == 1 and price > price_back_two_bars:
-                self.stop_loss = price - (atr * self.parameters['atr_sl'])
-                # print(f'Moving stop loss to {self.stop_loss} | Position == {self.position}')
-            elif self.position == -1 and price < price_back_two_bars:
-                self.stop_loss = price + (atr * self.parameters['atr_sl'])
-                # print(f'Moving stop loss to {self.stop_loss} | Position == {self.position}')
+        # else:
+        price_back_two_bars = self.data['close'].iloc[bar - 1]
+        if self.position == 1 and price > price_back_two_bars:
+            self.stop_loss = price - (atr * self.parameters['atr_sl'])
+            # print(f'Moving stop loss to {self.stop_loss} | Position == {self.position}')
+        elif self.position == -1 and price < price_back_two_bars:
+            self.stop_loss = price + (atr * self.parameters['atr_sl'])
+            # print(f'Moving stop loss to {self.stop_loss} | Position == {self.position}')
 
     def check_price_triggers(self, bar):
         date, close, spread = self.get_values(bar)
@@ -91,6 +92,20 @@ class IterativeBacktest(IterativeBase):
     def check_strategy(self, bar):
         if 'model' in self.strategy:
             self.prediction = self.model.predict(self.data[['paverage2close', 'proc15close']].iloc[bar].to_frame().T)[0]
+            print(self.data[['paverage2close', 'proc15close']].iloc[bar])
+        if 'macd' in self.strategy and 'model' in self.strategy:
+            macd_signal = self.data['MACDs_15_30_9'].iloc[bar]
+            if self.prediction == 1 and macd_signal <= 0:
+                self.prediction = 0
+            elif self.prediction == -1 and macd_signal >= 0:
+                self.prediction = 0
+        if 'macd_solo' in self.strategy:
+            macd_histogram = self.data['MACDh_15_30_9'].iloc[bar]
+            back_one = self.data['MACDh_15_30_9'].iloc[bar - 1]
+            if back_one < 0 < macd_histogram:
+                self.prediction = 1
+            elif macd_histogram < 0 < back_one:
+                self.prediction = -1
 
     def trade_conditions_met(self, bar):
         date, close, spread = self.get_values(bar)
@@ -118,6 +133,7 @@ class IterativeBacktest(IterativeBase):
         for bar in range(len(self.data) - 1):  # all bars (except the last bar)
             date, close, spread = self.get_values(bar)
 
+            # print(date, close, spread)
             # Check for TP/SL triggers
             self.check_price_triggers(bar)
 
@@ -148,14 +164,18 @@ class IterativeBacktest(IterativeBase):
                     self.take_profit = close + (atr * self.parameters['atr_tp'])
                     self.set_stop_loss(bar)
             elif self.prediction == 0:
-                self.close_position(close)
+                pass
 
         if self.position != 0:
             self.close_position(self.get_values(bar + 1)[1])
 
         wins, losses = 0, 0
         total = len(self.profits)
+        running_total = 0
+        totals = []
         for p in self.profits:
+            running_total += p
+            totals.append(running_total)
             if p < 0:
                 losses += 1
             else:
@@ -184,6 +204,7 @@ class IterativeBacktest(IterativeBase):
         # if 'model' in self.strategy:
         #     results['model_details'] = f'{self.model_start}_{self.model_end}'
 
+        # print(min(totals))
         return results
 
 
@@ -222,7 +243,7 @@ def test_strategy_combinations(test_constant_details):
     timeframes = ['M5', 'M15', 'M30', 'H1']
     atr_tps = np.arange(start=2, stop=4, step=0.25)
     atr_sls = np.arange(start=2, stop=4, step=0.25)
-    trailings = [True, False]
+    # trailings = [True, False]
 
     # Test-specific details
     strategy = test_constant_details['strategy']
@@ -230,9 +251,9 @@ def test_strategy_combinations(test_constant_details):
 
     if 'adx' in strategy:
         adx_cutoffs = np.arange(start=25, stop=55, step=5)
-        combs = itertools.product(timeframes, atr_tps, atr_sls, trailings, adx_cutoffs)
+        combs = itertools.product(timeframes, atr_tps, atr_sls, adx_cutoffs)
     else:
-        combs = itertools.product(timeframes, atr_tps, atr_sls, trailings)
+        combs = itertools.product(timeframes, atr_tps, atr_sls)
 
     i = 0
     for comb in combs:
@@ -245,7 +266,7 @@ def test_strategy_combinations(test_constant_details):
         parameters = {
             'atr_tp': comb[1],
             'atr_sl': comb[2],
-            'trailing_sl': comb[3]
+            # 'trailing_sl': comb[3]
         }
         if 'adx' in strategy:
             parameters['adx_cutoff'] = comb[4]
@@ -299,6 +320,8 @@ def test_strategies_exhaustive(symbol, start, end, strategies):
             existing_result_count = len(pd.read_csv(file_path).index) if exists(file_path) else 0
             test_details['existing_result_count'] = existing_result_count
             test_details['file_path'] = file_path
+            test_details['model_start'] = None
+            test_details['model_end'] = None
 
             test_strategy_combinations(test_details)
 
@@ -319,14 +342,13 @@ def get_results(tests_directory):
             'win_ratio': round(best_row['win ratio'], 3),
             'atr_tp': best_row['atr_tp'],
             'atr_sl': best_row['atr_sl'],
-            'trailing_sl': best_row['trailing_sl'],
+            # 'trailing_sl': best_row['trailing_sl'],
         }
         if 'model ' in filename:
             i = filename.index('model ')
             model_range = filename[i + 6: i + 30]
             r['model_range'] = model_range
         results.append(r)
-        print(results)
 
     with open(os.path.join(tests_directory, 'top_tests.txt'), 'a') as f:
         for r in results:
@@ -334,34 +356,48 @@ def get_results(tests_directory):
 
 
 if __name__ == "__main__":
-    start, end = '2012-10-01', '2022-10-21'
+    start, end = '2022-10-01', '2022-10-21'
     test_dir = f'tests/{start} to {end}'
     # strategies = ['model', 'model_adx', 'model_chaikin', 'model_adx_chaikin']
-    strategies = ['model_adx']
+    strategies = ['macd_solo']
     symbol = 'EUR_USD'
 
     if not exists(test_dir):
         os.mkdir(test_dir)
 
     # test_strategies_exhaustive(symbol, start, end, strategies)
-
+    #
     # get_results(test_dir)
 
-    file_path = os.path.join(os.path.dirname(__file__), f"tests/{start} to {end}/{symbol}-{start} to {end}-"
-                                                        f"model_adx-model 2000-01-01 "
-                                                        f"to 2022-10-22-optimization.csv")
+    # sys.exit()
+
+    strat = "macd_solo"
+    s_start, s_end = '2012-10-01', '2022-10-21'
+    test_dir = f'tests/{start} to {end}'
+    # strategies = ['model', 'model_adx', 'model_chaikin', 'model_adx_chaikin']
+    strategies = ['macd_solo']
+    symbol = 'EUR_USD'
+
+    file_path = os.path.join(os.path.dirname(__file__), f"tests/{s_start} to {s_end}/{symbol}-{start} to {end}-" \
+                                                        f"{strat}-")
+
+    if 'model' in strat:
+        file_path += "model 2000-01-01 to 2022-10-22-"
+
+    file_path += "optimization.csv"
+
     good_one = {
-        'timeframe': 'M5',
+        'timeframe': 'M30',
         'parameters':
             {'atr_tp': 3.25,
-             'atr_sl': 2.0,
-             'trailing_sl': False,
+             'atr_sl': 2.5,
+             # 'trailing_sl': False,
              'adx_cutoff': 30},
         'test_number': 0,
         'symbol': 'EUR_USD',
-        'start': start,
-        'end': end,
-        'strategy': 'model_adx',
+        'start': s_start,
+        'end': s_end,
+        'strategy': 'model',
         'existing_result_count': 0,
         'model_start': '2000-01-01',
         'model_end': '2022-10-22',

@@ -13,7 +13,7 @@ yesterday = datetime.strftime(yesterday, '%Y-%m-%d')
 end = yesterday
 timeframe = 'M30'
 
-api = tpqoa.tpqoa('C:/Users/Nick/Documents/GitHub/AlgoTrader/oanda.cfg')
+api = tpqoa.tpqoa('/oanda.cfg')
 mid = api.get_history(instrument=symbol, start=start, end=end, granularity=timeframe,
                       price='M', localize=False)
 bid = api.get_history(instrument=symbol, start=start, end=end, granularity=timeframe,

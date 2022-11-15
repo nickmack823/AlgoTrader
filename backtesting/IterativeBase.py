@@ -45,18 +45,20 @@ class IterativeBase:
         self.profits = []
 
         if 'model' in self.strategy:
-            self.model = self.get_model()
+            self.model = joblib.load("../EUR_USD-2000-01-01-2022-10-22-M5.joblib")
+            # self.model = self.get_model()
 
         self.get_data()
 
     def get_model(self):
-        model_path = os.path.join(self.dirname, f"models/{self.timeframe}/{self.symbol}-{self.model_start}-{self.model_end}"
-                                                f"-{self.timeframe}.joblib")
+        model_path = f"models/{self.timeframe}/{self.symbol}-{self.model_start}-{self.model_end}" \
+                                                f"-{self.timeframe}.joblib"
+        print(model_path)
         if exists(model_path):
             print(f"Getting pre-existing model at {model_path}")
             return joblib.load(model_path)
         else:
-            # print('Getting model...')
+            print('Getting model...')
             ml_model = MLModel(self.symbol, self.model_start, self.model_end, self.timeframe, 0.00007,
                                features=['paverage2close', 'proc15close'])
             ml_model.fit_model()

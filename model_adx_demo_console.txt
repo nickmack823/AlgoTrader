@@ -1,0 +1,3089 @@
+2022-10-26 03:00:08.844376
+=============================
+Getting historical data from 5 days ago to now...
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 06:40:00+00:00  0.99756  0.99758  ...  62.830663  32.315821
+2022-10-26 06:45:00+00:00  0.99789  0.99789  ...  65.975674  29.581481
+2022-10-26 06:50:00+00:00  0.99778  0.99788  ...  64.091754  30.735622
+2022-10-26 06:55:00+00:00  0.99782  0.99784  ...  62.930635  30.178800
+2022-10-26 07:00:00+00:00  0.99826  0.99828  ...  67.570458  26.401442
+
+[5 rows x 17 columns]
+Features calculated.
+Historical data retrieved and features calculated.
+
+Waiting for current candle to close...
+Candle closed, doing stuff... | Current Time: 03:05:00.626839
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 06:45:00+00:00  0.99789  0.99789  ...  65.975674  29.581481
+2022-10-26 06:50:00+00:00  0.99778  0.99788  ...  64.091754  30.735622
+2022-10-26 06:55:00+00:00  0.99782  0.99784  ...  62.930635  30.178800
+2022-10-26 07:00:00+00:00  0.99826  0.99828  ...  67.570458  26.401442
+2022-10-26 07:05:00+00:00  0.99818  0.99821  ...  65.561965  27.994628
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 03:10:00.701634
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 06:50:00+00:00  0.99778  0.99788  ...  64.091754  30.735622
+2022-10-26 06:55:00+00:00  0.99782  0.99784  ...  62.930635  30.178800
+2022-10-26 07:00:00+00:00  0.99826  0.99828  ...  67.570458  26.401442
+2022-10-26 07:05:00+00:00  0.99818  0.99821  ...  65.561965  27.994628
+2022-10-26 07:10:00+00:00  0.99831  0.99831  ...  66.219366  26.959047
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 03:15:01.731878
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 06:55:00+00:00  0.99782  0.99784  ...  62.930635  30.178800
+2022-10-26 07:00:00+00:00  0.99826  0.99828  ...  67.570458  26.401442
+2022-10-26 07:05:00+00:00  0.99818  0.99821  ...  65.561965  27.994628
+2022-10-26 07:10:00+00:00  0.99831  0.99831  ...  66.219366  26.959047
+2022-10-26 07:15:00+00:00  0.99778  0.99782  ...  57.281661  36.817470
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 03:20:00.585169
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:00:00+00:00  0.99826  0.99828  ...  67.570458  26.401442
+2022-10-26 07:05:00+00:00  0.99818  0.99821  ...  65.561965  27.994628
+2022-10-26 07:10:00+00:00  0.99831  0.99831  ...  66.219366  26.959047
+2022-10-26 07:15:00+00:00  0.99778  0.99782  ...  57.281661  36.817470
+2022-10-26 07:20:00+00:00  0.99882  0.99882  ...  67.372222  28.120762
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 03:25:00.541297
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:05:00+00:00  0.99818  0.99821  ...  65.561965  27.994628
+2022-10-26 07:10:00+00:00  0.99831  0.99831  ...  66.219366  26.959047
+2022-10-26 07:15:00+00:00  0.99778  0.99782  ...  57.281661  36.817470
+2022-10-26 07:20:00+00:00  0.99882  0.99882  ...  67.372222  28.120762
+2022-10-26 07:25:00+00:00  0.99948  0.99958  ...  72.349755  23.464910
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 0.9989069853741408 | Position == 1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T07:25:02.122628098Z | GOING LONG
+2022-10-26T07:25:02.122628098Z | units = 9471.0 | price = 0.99957 | P&L = $0.0 | Cum P&L = $0.0
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 03:30:00.609019
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:10:00+00:00  0.99831  0.99831  ...  66.219366  26.959047
+2022-10-26 07:15:00+00:00  0.99778  0.99782  ...  57.281661  36.817470
+2022-10-26 07:20:00+00:00  0.99882  0.99882  ...  67.372222  28.120762
+2022-10-26 07:25:00+00:00  0.99948  0.99958  ...  72.349755  23.464910
+2022-10-26 07:30:00+00:00  0.99994  1.00019  ...  75.733510  20.593344
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Closing out current position | Reason: Take profit triggered (Long Position)
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T07:34:43.053883780Z | GOING NEUTRAL
+2022-10-26T07:34:43.053883780Z | units = -9471.0 | price = 1.00055 | P&L = $9.2816 | Cum P&L = $9.2816
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 03:35:00.525525
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:15:00+00:00  0.99778  0.99782  ...  57.281661  36.817470
+2022-10-26 07:20:00+00:00  0.99882  0.99882  ...  67.372222  28.120762
+2022-10-26 07:25:00+00:00  0.99948  0.99958  ...  72.349755  23.464910
+2022-10-26 07:30:00+00:00  0.99994  1.00019  ...  75.733510  20.593344
+2022-10-26 07:35:00+00:00  1.00047  1.00054  ...  77.439482  19.145599
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 0.9997887782052539 | Position == 1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T07:35:02.115506243Z | GOING LONG
+2022-10-26T07:35:02.115506243Z | units = 9471.0 | price = 1.00057 | P&L = $0.0 | Cum P&L = $9.2816
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 03:40:01.743779
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:20:00+00:00  0.99882  0.99882  ...  67.372222  28.120762
+2022-10-26 07:25:00+00:00  0.99948  0.99958  ...  72.349755  23.464910
+2022-10-26 07:30:00+00:00  0.99994  1.00019  ...  75.733510  20.593344
+2022-10-26 07:35:00+00:00  1.00047  1.00054  ...  77.439482  19.145599
+2022-10-26 07:40:00+00:00  1.00081  1.00083  ...  78.135022  17.869984
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Closing out current position | Reason: Take profit triggered (Long Position)
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T07:41:50.720594828Z | GOING NEUTRAL
+2022-10-26T07:41:50.720594828Z | units = -9471.0 | price = 1.00148 | P&L = $8.6186 | Cum P&L = $17.900199999999998
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 03:45:01.086138
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:25:00+00:00  0.99948  0.99958  ...  72.349755  23.464910
+2022-10-26 07:30:00+00:00  0.99994  1.00019  ...  75.733510  20.593344
+2022-10-26 07:35:00+00:00  1.00047  1.00054  ...  77.439482  19.145599
+2022-10-26 07:40:00+00:00  1.00081  1.00083  ...  78.135022  17.869984
+2022-10-26 07:45:00+00:00  1.00231  1.00231  ...  82.912601  13.431078
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0013658342688159 | Position == 1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T07:45:02.685028890Z | GOING LONG
+2022-10-26T07:45:02.685028890Z | units = 9564.0 | price = 1.00232 | P&L = $0.0 | Cum P&L = $17.900199999999998
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 03:50:01.778874
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:30:00+00:00  0.99994  1.00019  ...  75.733510  20.593344
+2022-10-26 07:35:00+00:00  1.00047  1.00054  ...  77.439482  19.145599
+2022-10-26 07:40:00+00:00  1.00081  1.00083  ...  78.135022  17.869984
+2022-10-26 07:45:00+00:00  1.00231  1.00231  ...  82.912601  13.431078
+2022-10-26 07:50:00+00:00  1.00250  1.00252  ...  82.540997  12.800308
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Candle closed, doing stuff... | Current Time: 03:55:00.583673
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:35:00+00:00  1.00047  1.00054  ...  77.439482  19.145599
+2022-10-26 07:40:00+00:00  1.00081  1.00083  ...  78.135022  17.869984
+2022-10-26 07:45:00+00:00  1.00231  1.00231  ...  82.912601  13.431078
+2022-10-26 07:50:00+00:00  1.00250  1.00252  ...  82.540997  12.800308
+2022-10-26 07:55:00+00:00  1.00274  1.00293  ...  83.185236  11.838074
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Candle closed, doing stuff... | Current Time: 04:00:00.802268
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:40:00+00:00  1.00081  1.00083  ...  78.135022  17.869984
+2022-10-26 07:45:00+00:00  1.00231  1.00231  ...  82.912601  13.431078
+2022-10-26 07:50:00+00:00  1.00250  1.00252  ...  82.540997  12.800308
+2022-10-26 07:55:00+00:00  1.00274  1.00293  ...  83.185236  11.838074
+2022-10-26 08:00:00+00:00  1.00331  1.00335  ...  82.978557  10.825379
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Candle closed, doing stuff... | Current Time: 04:05:00.918985
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:45:00+00:00  1.00231  1.00231  ...  82.912601  13.431078
+2022-10-26 07:50:00+00:00  1.00250  1.00252  ...  82.540997  12.800308
+2022-10-26 07:55:00+00:00  1.00274  1.00293  ...  83.185236  11.838074
+2022-10-26 08:00:00+00:00  1.00331  1.00335  ...  82.978557  10.825379
+2022-10-26 08:05:00+00:00  1.00336  1.00337  ...  80.691245  11.732949
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0040492057332453 | Position == -1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T08:05:02.455703628Z | GOING SHORT
+2022-10-26T08:05:02.455703628Z | units = -19300.0 | price = 1.00304 | P&L = $6.8861 | Cum P&L = $24.786299999999997
+----------------------------------------------------------------------------------------------------
+
+Closing out current position | Reason: Stop loss triggered (Short Position)
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T08:09:42.848399647Z | GOING NEUTRAL
+2022-10-26T08:09:42.848399647Z | units = 9736.0 | price = 1.00412 | P&L = $-10.5149 | Cum P&L = $14.271399999999996
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 04:10:00.538199
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:50:00+00:00  1.00250  1.00252  ...  82.540997  12.800308
+2022-10-26 07:55:00+00:00  1.00274  1.00293  ...  83.185236  11.838074
+2022-10-26 08:00:00+00:00  1.00331  1.00335  ...  82.978557  10.825379
+2022-10-26 08:05:00+00:00  1.00336  1.00337  ...  80.691245  11.732949
+2022-10-26 08:10:00+00:00  1.00388  1.00397  ...  80.606807  10.299733
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0030828803905578 | Position == 1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T08:10:02.067018664Z | GOING LONG
+2022-10-26T08:10:02.067018664Z | units = 9719.0 | price = 1.0039 | P&L = $0.0 | Cum P&L = $14.271399999999996
+----------------------------------------------------------------------------------------------------
+
+Closing out current position | Reason: Stop loss triggered (Long Position)
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T08:12:04.215095728Z | GOING NEUTRAL
+2022-10-26T08:12:04.215095728Z | units = -9719.0 | price = 1.00293 | P&L = $-9.4274 | Cum P&L = $4.843999999999996
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 04:15:01.241068
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 07:55:00+00:00  1.00274  1.00293  ...  83.185236  11.838074
+2022-10-26 08:00:00+00:00  1.00331  1.00335  ...  82.978557  10.825379
+2022-10-26 08:05:00+00:00  1.00336  1.00337  ...  80.691245  11.732949
+2022-10-26 08:10:00+00:00  1.00388  1.00397  ...  80.606807  10.299733
+2022-10-26 08:15:00+00:00  1.00266  1.00272  ...  65.639703  25.812666
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0037001824944818 | Position == -1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T08:15:02.770196526Z | GOING SHORT
+2022-10-26T08:15:02.770196526Z | units = -9614.0 | price = 1.00261 | P&L = $0.0 | Cum P&L = $4.843999999999996
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 04:20:00.534254
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:00:00+00:00  1.00331  1.00335  ...  82.978557  10.825379
+2022-10-26 08:05:00+00:00  1.00336  1.00337  ...  80.691245  11.732949
+2022-10-26 08:10:00+00:00  1.00388  1.00397  ...  80.606807  10.299733
+2022-10-26 08:15:00+00:00  1.00266  1.00272  ...  65.639703  25.812666
+2022-10-26 08:20:00+00:00  1.00204  1.00214  ...  59.424156  32.280593
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Candle closed, doing stuff... | Current Time: 04:25:00.580024
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:05:00+00:00  1.00336  1.00337  ...  80.691245  11.732949
+2022-10-26 08:10:00+00:00  1.00388  1.00397  ...  80.606807  10.299733
+2022-10-26 08:15:00+00:00  1.00266  1.00272  ...  65.639703  25.812666
+2022-10-26 08:20:00+00:00  1.00204  1.00214  ...  59.424156  32.280593
+2022-10-26 08:25:00+00:00  1.00270  1.00276  ...  62.875882  29.534531
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0016688222369008 | Position == 1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T08:25:02.104577768Z | GOING LONG
+2022-10-26T08:25:02.104577768Z | units = 19040.0 | price = 1.00282 | P&L = $-2.0189 | Cum P&L = $2.825099999999996
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 04:30:00.741209
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:10:00+00:00  1.00388  1.00397  ...  80.606807  10.299733
+2022-10-26 08:15:00+00:00  1.00266  1.00272  ...  65.639703  25.812666
+2022-10-26 08:20:00+00:00  1.00204  1.00214  ...  59.424156  32.280593
+2022-10-26 08:25:00+00:00  1.00270  1.00276  ...  62.875882  29.534531
+2022-10-26 08:30:00+00:00  1.00260  1.00260  ...  60.463646  31.669572
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0034453793514493 | Position == -1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T08:30:02.263771895Z | GOING SHORT
+2022-10-26T08:30:02.263771895Z | units = -19000.0 | price = 1.00228 | P&L = $-5.09 | Cum P&L = $-2.264900000000004
+----------------------------------------------------------------------------------------------------
+
+Closing out current position | Reason: Stop loss triggered (Short Position)
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T08:35:00.040872568Z | GOING NEUTRAL
+2022-10-26T08:35:00.040872568Z | units = 9574.0 | price = 1.00359 | P&L = $-12.5419 | Cum P&L = $-14.806800000000004
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 04:35:00.617356
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:15:00+00:00  1.00266  1.00272  ...  65.639703  25.812666
+2022-10-26 08:20:00+00:00  1.00204  1.00214  ...  59.424156  32.280593
+2022-10-26 08:25:00+00:00  1.00270  1.00276  ...  62.875882  29.534531
+2022-10-26 08:30:00+00:00  1.00260  1.00260  ...  60.463646  31.669572
+2022-10-26 08:35:00+00:00  1.00344  1.00352  ...  63.969803  27.178003
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0024321477450828 | Position == 1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T08:35:02.201603327Z | GOING LONG
+2022-10-26T08:35:02.201603327Z | units = 9449.0 | price = 1.00348 | P&L = $0.0 | Cum P&L = $-14.806800000000004
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 04:40:00.900349
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:20:00+00:00  1.00204  1.00214  ...  59.424156  32.280593
+2022-10-26 08:25:00+00:00  1.00270  1.00276  ...  62.875882  29.534531
+2022-10-26 08:30:00+00:00  1.00260  1.00260  ...  60.463646  31.669572
+2022-10-26 08:35:00+00:00  1.00344  1.00352  ...  63.969803  27.178003
+2022-10-26 08:40:00+00:00  1.00398  1.00411  ...  66.744598  25.084943
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Candle closed, doing stuff... | Current Time: 04:45:01.978714
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:25:00+00:00  1.00270  1.00276  ...  62.875882  29.534531
+2022-10-26 08:30:00+00:00  1.00260  1.00260  ...  60.463646  31.669572
+2022-10-26 08:35:00+00:00  1.00344  1.00352  ...  63.969803  27.178003
+2022-10-26 08:40:00+00:00  1.00398  1.00411  ...  66.744598  25.084943
+2022-10-26 08:45:00+00:00  1.00342  1.00346  ...  61.235503  30.494615
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0045676889340867 | Position == -1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T08:45:03.526858740Z | GOING SHORT
+2022-10-26T08:45:03.526858740Z | units = -18646.0 | price = 1.00351 | P&L = $0.2835 | Cum P&L = $-14.523300000000004
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 04:50:00.683005
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:30:00+00:00  1.00260  1.00260  ...  60.463646  31.669572
+2022-10-26 08:35:00+00:00  1.00344  1.00352  ...  63.969803  27.178003
+2022-10-26 08:40:00+00:00  1.00398  1.00411  ...  66.744598  25.084943
+2022-10-26 08:45:00+00:00  1.00342  1.00346  ...  61.235503  30.494615
+2022-10-26 08:50:00+00:00  1.00300  1.00305  ...  57.558165  33.885287
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Candle closed, doing stuff... | Current Time: 04:55:00.441666
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:35:00+00:00  1.00344  1.00352  ...  63.969803  27.178003
+2022-10-26 08:40:00+00:00  1.00398  1.00411  ...  66.744598  25.084943
+2022-10-26 08:45:00+00:00  1.00342  1.00346  ...  61.235503  30.494615
+2022-10-26 08:50:00+00:00  1.00300  1.00305  ...  57.558165  33.885287
+2022-10-26 08:55:00+00:00  1.00390  1.00394  ...  62.278145  30.116885
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0027967376027518 | Position == 1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T08:55:02.087478201Z | GOING LONG
+2022-10-26T08:55:02.087478201Z | units = 18652.0 | price = 1.00403 | P&L = $-4.7824 | Cum P&L = $-19.305700000000005
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 05:00:00.789019
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:40:00+00:00  1.00398  1.00411  ...  66.744598  25.084943
+2022-10-26 08:45:00+00:00  1.00342  1.00346  ...  61.235503  30.494615
+2022-10-26 08:50:00+00:00  1.00300  1.00305  ...  57.558165  33.885287
+2022-10-26 08:55:00+00:00  1.00390  1.00394  ...  62.278145  30.116885
+2022-10-26 09:00:00+00:00  1.00388  1.00388  ...  61.288452  30.697716
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0049187436545877 | Position == -1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T09:00:02.548065176Z | GOING SHORT
+2022-10-26T09:00:02.548065176Z | units = -18556.0 | price = 1.00377 | P&L = $-2.4583 | Cum P&L = $-21.764000000000006
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 05:05:00.551250
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:45:00+00:00  1.00342  1.00346  ...  61.235503  30.494615
+2022-10-26 08:50:00+00:00  1.00300  1.00305  ...  57.558165  33.885287
+2022-10-26 08:55:00+00:00  1.00390  1.00394  ...  62.278145  30.116885
+2022-10-26 09:00:00+00:00  1.00388  1.00388  ...  61.288452  30.697716
+2022-10-26 09:05:00+00:00  1.00445  1.00445  ...  63.861854  28.240879
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0033511666064543 | Position == 1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T09:05:02.189241900Z | GOING LONG
+2022-10-26T09:05:02.189241900Z | units = 18508.0 | price = 1.00455 | P&L = $-7.0988 | Cum P&L = $-28.862800000000007
+----------------------------------------------------------------------------------------------------
+
+Closing out current position | Reason: Stop loss triggered (Long Position)
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T09:09:31.623738941Z | GOING NEUTRAL
+2022-10-26T09:09:31.623738941Z | units = -9407.0 | price = 1.0032 | P&L = $-12.6994 | Cum P&L = $-41.562200000000004
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 05:10:00.641023
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:50:00+00:00  1.00300  1.00305  ...  57.558165  33.885287
+2022-10-26 08:55:00+00:00  1.00390  1.00394  ...  62.278145  30.116885
+2022-10-26 09:00:00+00:00  1.00388  1.00388  ...  61.288452  30.697716
+2022-10-26 09:05:00+00:00  1.00445  1.00445  ...  63.861854  28.240879
+2022-10-26 09:10:00+00:00  1.00327  1.00330  ...  54.802246  38.299564
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0044582024368638 | Position == -1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T09:10:02.325402870Z | GOING SHORT
+2022-10-26T09:10:02.325402870Z | units = -9183.0 | price = 1.00328 | P&L = $0.0 | Cum P&L = $-41.562200000000004
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 05:15:00.489604
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 08:55:00+00:00  1.00390  1.00394  ...  62.278145  30.116885
+2022-10-26 09:00:00+00:00  1.00388  1.00388  ...  61.288452  30.697716
+2022-10-26 09:05:00+00:00  1.00445  1.00445  ...  63.861854  28.240879
+2022-10-26 09:10:00+00:00  1.00327  1.00330  ...  54.802246  38.299564
+2022-10-26 09:15:00+00:00  1.00337  1.00339  ...  55.184794  37.757239
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0022802405943407 | Position == 1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T09:15:02.263240205Z | GOING LONG
+2022-10-26T09:15:02.263240205Z | units = 18112.0 | price = 1.00347 | P&L = $-1.7448 | Cum P&L = $-43.307
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 05:20:01.127456
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:00:00+00:00  1.00388  1.00388  ...  61.288452  30.697716
+2022-10-26 09:05:00+00:00  1.00445  1.00445  ...  63.861854  28.240879
+2022-10-26 09:10:00+00:00  1.00327  1.00330  ...  54.802246  38.299564
+2022-10-26 09:15:00+00:00  1.00337  1.00339  ...  55.184794  37.757239
+2022-10-26 09:20:00+00:00  1.00320  1.00320  ...  53.551544  38.926739
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0042619194481124 | Position == -1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T09:20:02.850110760Z | GOING SHORT
+2022-10-26T09:20:02.850110760Z | units = -18076.0 | price = 1.00309 | P&L = $-3.393 | Cum P&L = $-46.7
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 05:25:00.792057
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:05:00+00:00  1.00445  1.00445  ...  63.861854  28.240879
+2022-10-26 09:10:00+00:00  1.00327  1.00330  ...  54.802246  38.299564
+2022-10-26 09:15:00+00:00  1.00337  1.00339  ...  55.184794  37.757239
+2022-10-26 09:20:00+00:00  1.00320  1.00320  ...  53.551544  38.926739
+2022-10-26 09:25:00+00:00  1.00269  1.00271  ...  49.732855  42.878158
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Candle closed, doing stuff... | Current Time: 05:30:00.534584
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:10:00+00:00  1.00327  1.00330  ...  54.802246  38.299564
+2022-10-26 09:15:00+00:00  1.00337  1.00339  ...  55.184794  37.757239
+2022-10-26 09:20:00+00:00  1.00320  1.00320  ...  53.551544  38.926739
+2022-10-26 09:25:00+00:00  1.00269  1.00271  ...  49.732855  42.878158
+2022-10-26 09:30:00+00:00  1.00220  1.00221  ...  46.248278  46.341483
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Candle closed, doing stuff... | Current Time: 05:35:00.429765
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:15:00+00:00  1.00337  1.00339  ...  55.184794  37.757239
+2022-10-26 09:20:00+00:00  1.00320  1.00320  ...  53.551544  38.926739
+2022-10-26 09:25:00+00:00  1.00269  1.00271  ...  49.732855  42.878158
+2022-10-26 09:30:00+00:00  1.00220  1.00221  ...  46.248278  46.341483
+2022-10-26 09:35:00+00:00  1.00243  1.00245  ...  47.989926  44.719216
+
+[5 rows x 17 columns]
+Features calculated.
+ADX > 0, make prediction
+Setting stop loss to 1.0014197897130093 | Position == 1
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T09:35:02.213870421Z | GOING LONG
+2022-10-26T09:35:02.213870421Z | units = 18008.0 | price = 1.00247 | P&L = $5.6711 | Cum P&L = $-41.0289
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 05:40:00.623319
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:20:00+00:00  1.00320  1.00320  ...  53.551544  38.926739
+2022-10-26 09:25:00+00:00  1.00269  1.00271  ...  49.732855  42.878158
+2022-10-26 09:30:00+00:00  1.00220  1.00221  ...  46.248278  46.341483
+2022-10-26 09:35:00+00:00  1.00243  1.00245  ...  47.989926  44.719216
+2022-10-26 09:40:00+00:00  1.00239  1.00246  ...  47.488641  44.401319
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 05:45:00.304884
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:25:00+00:00  1.00269  1.00271  ...  49.732855  42.878158
+2022-10-26 09:30:00+00:00  1.00220  1.00221  ...  46.248278  46.341483
+2022-10-26 09:35:00+00:00  1.00243  1.00245  ...  47.989926  44.719216
+2022-10-26 09:40:00+00:00  1.00239  1.00246  ...  47.488641  44.401319
+2022-10-26 09:45:00+00:00  1.00238  1.00238  ...  46.370858  44.611560
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 05:50:01.733359
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:30:00+00:00  1.00220  1.00221  ...  46.248278  46.341483
+2022-10-26 09:35:00+00:00  1.00243  1.00245  ...  47.989926  44.719216
+2022-10-26 09:40:00+00:00  1.00239  1.00246  ...  47.488641  44.401319
+2022-10-26 09:45:00+00:00  1.00238  1.00238  ...  46.370858  44.611560
+2022-10-26 09:50:00+00:00  1.00224  1.00225  ...  45.224484  45.980865
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 05:55:00.283983
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:35:00+00:00  1.00243  1.00245  ...  47.989926  44.719216
+2022-10-26 09:40:00+00:00  1.00239  1.00246  ...  47.488641  44.401319
+2022-10-26 09:45:00+00:00  1.00238  1.00238  ...  46.370858  44.611560
+2022-10-26 09:50:00+00:00  1.00224  1.00225  ...  45.224484  45.980865
+2022-10-26 09:55:00+00:00  1.00227  1.00235  ...  46.179741  45.178982
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 06:00:00.531107
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:40:00+00:00  1.00239  1.00246  ...  47.488641  44.401319
+2022-10-26 09:45:00+00:00  1.00238  1.00238  ...  46.370858  44.611560
+2022-10-26 09:50:00+00:00  1.00224  1.00225  ...  45.224484  45.980865
+2022-10-26 09:55:00+00:00  1.00227  1.00235  ...  46.179741  45.178982
+2022-10-26 10:00:00+00:00  1.00261  1.00262  ...  48.089518  42.392384
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 06:05:02.619294
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:45:00+00:00  1.00238  1.00238  ...  46.370858  44.611560
+2022-10-26 09:50:00+00:00  1.00224  1.00225  ...  45.224484  45.980865
+2022-10-26 09:55:00+00:00  1.00227  1.00235  ...  46.179741  45.178982
+2022-10-26 10:00:00+00:00  1.00261  1.00262  ...  48.089518  42.392384
+2022-10-26 10:05:00+00:00  1.00292  1.00292  ...  50.613171  39.893908
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 06:10:00.372213
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:50:00+00:00  1.00224  1.00225  ...  45.224484  45.980865
+2022-10-26 09:55:00+00:00  1.00227  1.00235  ...  46.179741  45.178982
+2022-10-26 10:00:00+00:00  1.00261  1.00262  ...  48.089518  42.392384
+2022-10-26 10:05:00+00:00  1.00292  1.00292  ...  50.613171  39.893908
+2022-10-26 10:10:00+00:00  1.00218  1.00218  ...  44.232571  47.471242
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 06:15:00.272029
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 09:55:00+00:00  1.00227  1.00235  ...  46.179741  45.178982
+2022-10-26 10:00:00+00:00  1.00261  1.00262  ...  48.089518  42.392384
+2022-10-26 10:05:00+00:00  1.00292  1.00292  ...  50.613171  39.893908
+2022-10-26 10:10:00+00:00  1.00218  1.00218  ...  44.232571  47.471242
+2022-10-26 10:15:00+00:00  1.00182  1.00182  ...  41.954232  50.176903
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Closing out current position | Reason: Stop loss triggered (Long Position)
+
+----------------------------------------------------------------------------------------------------
+2022-10-26T10:18:05.977005415Z | GOING NEUTRAL
+2022-10-26T10:18:05.977005415Z | units = -8861.0 | price = 1.00124 | P&L = $-10.899 | Cum P&L = $-51.9279
+----------------------------------------------------------------------------------------------------
+
+Candle closed, doing stuff... | Current Time: 06:20:03.350946
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:00:00+00:00  1.00261  1.00262  ...  48.089518  42.392384
+2022-10-26 10:05:00+00:00  1.00292  1.00292  ...  50.613171  39.893908
+2022-10-26 10:10:00+00:00  1.00218  1.00218  ...  44.232571  47.471242
+2022-10-26 10:15:00+00:00  1.00182  1.00182  ...  41.954232  50.176903
+2022-10-26 10:20:00+00:00  1.00120  1.00124  ...  37.639310  55.301124
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 06:25:00.933811
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:05:00+00:00  1.00292  1.00292  ...  50.613171  39.893908
+2022-10-26 10:10:00+00:00  1.00218  1.00218  ...  44.232571  47.471242
+2022-10-26 10:15:00+00:00  1.00182  1.00182  ...  41.954232  50.176903
+2022-10-26 10:20:00+00:00  1.00120  1.00124  ...  37.639310  55.301124
+2022-10-26 10:25:00+00:00  1.00126  1.00134  ...  38.463768  53.951776
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 06:30:00.196764
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:10:00+00:00  1.00218  1.00218  ...  44.232571  47.471242
+2022-10-26 10:15:00+00:00  1.00182  1.00182  ...  41.954232  50.176903
+2022-10-26 10:20:00+00:00  1.00120  1.00124  ...  37.639310  55.301124
+2022-10-26 10:25:00+00:00  1.00126  1.00134  ...  38.463768  53.951776
+2022-10-26 10:30:00+00:00  1.00165  1.00170  ...  41.916391  50.009488
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 06:35:00.559555
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:15:00+00:00  1.00182  1.00182  ...  41.954232  50.176903
+2022-10-26 10:20:00+00:00  1.00120  1.00124  ...  37.639310  55.301124
+2022-10-26 10:25:00+00:00  1.00126  1.00134  ...  38.463768  53.951776
+2022-10-26 10:30:00+00:00  1.00165  1.00170  ...  41.916391  50.009488
+2022-10-26 10:35:00+00:00  1.00196  1.00196  ...  44.614429  47.686501
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 06:40:00.531554
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:20:00+00:00  1.00120  1.00124  ...  37.639310  55.301124
+2022-10-26 10:25:00+00:00  1.00126  1.00134  ...  38.463768  53.951776
+2022-10-26 10:30:00+00:00  1.00165  1.00170  ...  41.916391  50.009488
+2022-10-26 10:35:00+00:00  1.00196  1.00196  ...  44.614429  47.686501
+2022-10-26 10:40:00+00:00  1.00164  1.00164  ...  41.875122  50.537354
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 06:45:03.697187
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:25:00+00:00  1.00126  1.00134  ...  38.463768  53.951776
+2022-10-26 10:30:00+00:00  1.00165  1.00170  ...  41.916391  50.009488
+2022-10-26 10:35:00+00:00  1.00196  1.00196  ...  44.614429  47.686501
+2022-10-26 10:40:00+00:00  1.00164  1.00164  ...  41.875122  50.537354
+2022-10-26 10:45:00+00:00  1.00192  1.00192  ...  44.711868  47.751372
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 06:50:00.254629
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:30:00+00:00  1.00165  1.00170  ...  41.916391  50.009488
+2022-10-26 10:35:00+00:00  1.00196  1.00196  ...  44.614429  47.686501
+2022-10-26 10:40:00+00:00  1.00164  1.00164  ...  41.875122  50.537354
+2022-10-26 10:45:00+00:00  1.00192  1.00192  ...  44.711868  47.751372
+2022-10-26 10:50:00+00:00  1.00198  1.00198  ...  44.490528  46.285834
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 06:55:00.500721
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:35:00+00:00  1.00196  1.00196  ...  44.614429  47.686501
+2022-10-26 10:40:00+00:00  1.00164  1.00164  ...  41.875122  50.537354
+2022-10-26 10:45:00+00:00  1.00192  1.00192  ...  44.711868  47.751372
+2022-10-26 10:50:00+00:00  1.00198  1.00198  ...  44.490528  46.285834
+2022-10-26 10:55:00+00:00  1.00208  1.00210  ...  45.833262  45.166213
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:00:00.748707
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:40:00+00:00  1.00164  1.00164  ...  41.875122  50.537354
+2022-10-26 10:45:00+00:00  1.00192  1.00192  ...  44.711868  47.751372
+2022-10-26 10:50:00+00:00  1.00198  1.00198  ...  44.490528  46.285834
+2022-10-26 10:55:00+00:00  1.00208  1.00210  ...  45.833262  45.166213
+2022-10-26 11:00:00+00:00  1.00234  1.00234  ...  48.515599  42.929582
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:05:00.834238
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:45:00+00:00  1.00192  1.00192  ...  44.711868  47.751372
+2022-10-26 10:50:00+00:00  1.00198  1.00198  ...  44.490528  46.285834
+2022-10-26 10:55:00+00:00  1.00208  1.00210  ...  45.833262  45.166213
+2022-10-26 11:00:00+00:00  1.00234  1.00234  ...  48.515599  42.929582
+2022-10-26 11:05:00+00:00  1.00258  1.00258  ...  50.907430  40.584859
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:10:00.506777
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:50:00+00:00  1.00198  1.00198  ...  44.490528  46.285834
+2022-10-26 10:55:00+00:00  1.00208  1.00210  ...  45.833262  45.166213
+2022-10-26 11:00:00+00:00  1.00234  1.00234  ...  48.515599  42.929582
+2022-10-26 11:05:00+00:00  1.00258  1.00258  ...  50.907430  40.584859
+2022-10-26 11:10:00+00:00  1.00263  1.00267  ...  51.657969  39.599425
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:15:02.343405
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 10:55:00+00:00  1.00208  1.00210  ...  45.833262  45.166213
+2022-10-26 11:00:00+00:00  1.00234  1.00234  ...  48.515599  42.929582
+2022-10-26 11:05:00+00:00  1.00258  1.00258  ...  50.907430  40.584859
+2022-10-26 11:10:00+00:00  1.00263  1.00267  ...  51.657969  39.599425
+2022-10-26 11:15:00+00:00  1.00302  1.00302  ...  55.008936  36.318702
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:20:00.311647
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:00:00+00:00  1.00234  1.00234  ...  48.515599  42.929582
+2022-10-26 11:05:00+00:00  1.00258  1.00258  ...  50.907430  40.584859
+2022-10-26 11:10:00+00:00  1.00263  1.00267  ...  51.657969  39.599425
+2022-10-26 11:15:00+00:00  1.00302  1.00302  ...  55.008936  36.318702
+2022-10-26 11:20:00+00:00  1.00263  1.00265  ...  50.071291  42.034785
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:25:01.494305
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:05:00+00:00  1.00258  1.00258  ...  50.907430  40.584859
+2022-10-26 11:10:00+00:00  1.00263  1.00267  ...  51.657969  39.599425
+2022-10-26 11:15:00+00:00  1.00302  1.00302  ...  55.008936  36.318702
+2022-10-26 11:20:00+00:00  1.00263  1.00265  ...  50.071291  42.034785
+2022-10-26 11:25:00+00:00  1.00264  1.00266  ...  49.616278  41.462219
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:30:00.419787
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:10:00+00:00  1.00263  1.00267  ...  51.657969  39.599425
+2022-10-26 11:15:00+00:00  1.00302  1.00302  ...  55.008936  36.318702
+2022-10-26 11:20:00+00:00  1.00263  1.00265  ...  50.071291  42.034785
+2022-10-26 11:25:00+00:00  1.00264  1.00266  ...  49.616278  41.462219
+2022-10-26 11:30:00+00:00  1.00251  1.00256  ...  47.974228  43.163133
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:35:01.564836
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:15:00+00:00  1.00302  1.00302  ...  55.008936  36.318702
+2022-10-26 11:20:00+00:00  1.00263  1.00265  ...  50.071291  42.034785
+2022-10-26 11:25:00+00:00  1.00264  1.00266  ...  49.616278  41.462219
+2022-10-26 11:30:00+00:00  1.00251  1.00256  ...  47.974228  43.163133
+2022-10-26 11:35:00+00:00  1.00266  1.00266  ...  49.143801  41.987342
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:40:01.072100
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:20:00+00:00  1.00263  1.00265  ...  50.071291  42.034785
+2022-10-26 11:25:00+00:00  1.00264  1.00266  ...  49.616278  41.462219
+2022-10-26 11:30:00+00:00  1.00251  1.00256  ...  47.974228  43.163133
+2022-10-26 11:35:00+00:00  1.00266  1.00266  ...  49.143801  41.987342
+2022-10-26 11:40:00+00:00  1.00244  1.00248  ...  46.892740  44.644646
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:45:01.946351
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:25:00+00:00  1.00264  1.00266  ...  49.616278  41.462219
+2022-10-26 11:30:00+00:00  1.00251  1.00256  ...  47.974228  43.163133
+2022-10-26 11:35:00+00:00  1.00266  1.00266  ...  49.143801  41.987342
+2022-10-26 11:40:00+00:00  1.00244  1.00248  ...  46.892740  44.644646
+2022-10-26 11:45:00+00:00  1.00286  1.00286  ...  51.645292  40.234169
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:50:00.362800
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:30:00+00:00  1.00251  1.00256  ...  47.974228  43.163133
+2022-10-26 11:35:00+00:00  1.00266  1.00266  ...  49.143801  41.987342
+2022-10-26 11:40:00+00:00  1.00244  1.00248  ...  46.892740  44.644646
+2022-10-26 11:45:00+00:00  1.00286  1.00286  ...  51.645292  40.234169
+2022-10-26 11:50:00+00:00  1.00227  1.00228  ...  45.159229  47.740079
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 07:55:00.447777
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:35:00+00:00  1.00266  1.00266  ...  49.143801  41.987342
+2022-10-26 11:40:00+00:00  1.00244  1.00248  ...  46.892740  44.644646
+2022-10-26 11:45:00+00:00  1.00286  1.00286  ...  51.645292  40.234169
+2022-10-26 11:50:00+00:00  1.00227  1.00228  ...  45.159229  47.740079
+2022-10-26 11:55:00+00:00  1.00151  1.00156  ...  37.778764  55.442911
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:00:00.408945
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:40:00+00:00  1.00244  1.00248  ...  46.892740  44.644646
+2022-10-26 11:45:00+00:00  1.00286  1.00286  ...  51.645292  40.234169
+2022-10-26 11:50:00+00:00  1.00227  1.00228  ...  45.159229  47.740079
+2022-10-26 11:55:00+00:00  1.00151  1.00156  ...  37.778764  55.442911
+2022-10-26 12:00:00+00:00  1.00211  1.00216  ...  45.198237  48.831709
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:05:00.384380
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:45:00+00:00  1.00286  1.00286  ...  51.645292  40.234169
+2022-10-26 11:50:00+00:00  1.00227  1.00228  ...  45.159229  47.740079
+2022-10-26 11:55:00+00:00  1.00151  1.00156  ...  37.778764  55.442911
+2022-10-26 12:00:00+00:00  1.00211  1.00216  ...  45.198237  48.831709
+2022-10-26 12:05:00+00:00  1.00215  1.00218  ...  43.701704  49.077332
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:10:00.428981
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:50:00+00:00  1.00227  1.00228  ...  45.159229  47.740079
+2022-10-26 11:55:00+00:00  1.00151  1.00156  ...  37.778764  55.442911
+2022-10-26 12:00:00+00:00  1.00211  1.00216  ...  45.198237  48.831709
+2022-10-26 12:05:00+00:00  1.00215  1.00218  ...  43.701704  49.077332
+2022-10-26 12:10:00+00:00  1.00169  1.00171  ...  40.707909  52.565801
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:15:00.347356
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 11:55:00+00:00  1.00151  1.00156  ...  37.778764  55.442911
+2022-10-26 12:00:00+00:00  1.00211  1.00216  ...  45.198237  48.831709
+2022-10-26 12:05:00+00:00  1.00215  1.00218  ...  43.701704  49.077332
+2022-10-26 12:10:00+00:00  1.00169  1.00171  ...  40.707909  52.565801
+2022-10-26 12:15:00+00:00  1.00232  1.00232  ...  47.823331  46.257576
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:20:00.186017
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:00:00+00:00  1.00211  1.00216  ...  45.198237  48.831709
+2022-10-26 12:05:00+00:00  1.00215  1.00218  ...  43.701704  49.077332
+2022-10-26 12:10:00+00:00  1.00169  1.00171  ...  40.707909  52.565801
+2022-10-26 12:15:00+00:00  1.00232  1.00232  ...  47.823331  46.257576
+2022-10-26 12:20:00+00:00  1.00190  1.00200  ...  43.915582  50.259882
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:25:00.513341
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:05:00+00:00  1.00215  1.00218  ...  43.701704  49.077332
+2022-10-26 12:10:00+00:00  1.00169  1.00171  ...  40.707909  52.565801
+2022-10-26 12:15:00+00:00  1.00232  1.00232  ...  47.823331  46.257576
+2022-10-26 12:20:00+00:00  1.00190  1.00200  ...  43.915582  50.259882
+2022-10-26 12:25:00+00:00  1.00153  1.00154  ...  40.055129  53.485744
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:30:00.380542
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:10:00+00:00  1.00169  1.00171  ...  40.707909  52.565801
+2022-10-26 12:15:00+00:00  1.00232  1.00232  ...  47.823331  46.257576
+2022-10-26 12:20:00+00:00  1.00190  1.00200  ...  43.915582  50.259882
+2022-10-26 12:25:00+00:00  1.00153  1.00154  ...  40.055129  53.485744
+2022-10-26 12:30:00+00:00  1.00082  1.00082  ...  33.972478  60.200163
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:35:00.490547
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:15:00+00:00  1.00232  1.00232  ...  47.823331  46.257576
+2022-10-26 12:20:00+00:00  1.00190  1.00200  ...  43.915582  50.259882
+2022-10-26 12:25:00+00:00  1.00153  1.00154  ...  40.055129  53.485744
+2022-10-26 12:30:00+00:00  1.00082  1.00082  ...  33.972478  60.200163
+2022-10-26 12:35:00+00:00  1.00079  1.00096  ...  34.588574  56.885326
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:40:00.495886
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:20:00+00:00  1.00190  1.00200  ...  43.915582  50.259882
+2022-10-26 12:25:00+00:00  1.00153  1.00154  ...  40.055129  53.485744
+2022-10-26 12:30:00+00:00  1.00082  1.00082  ...  33.972478  60.200163
+2022-10-26 12:35:00+00:00  1.00079  1.00096  ...  34.588574  56.885326
+2022-10-26 12:40:00+00:00  1.00060  1.00062  ...  32.244724  57.132053
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:45:00.325104
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:25:00+00:00  1.00153  1.00154  ...  40.055129  53.485744
+2022-10-26 12:30:00+00:00  1.00082  1.00082  ...  33.972478  60.200163
+2022-10-26 12:35:00+00:00  1.00079  1.00096  ...  34.588574  56.885326
+2022-10-26 12:40:00+00:00  1.00060  1.00062  ...  32.244724  57.132053
+2022-10-26 12:45:00+00:00  1.00110  1.00110  ...  37.566969  51.763966
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:50:00.391162
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:30:00+00:00  1.00082  1.00082  ...  33.972478  60.200163
+2022-10-26 12:35:00+00:00  1.00079  1.00096  ...  34.588574  56.885326
+2022-10-26 12:40:00+00:00  1.00060  1.00062  ...  32.244724  57.132053
+2022-10-26 12:45:00+00:00  1.00110  1.00110  ...  37.566969  51.763966
+2022-10-26 12:50:00+00:00  1.00024  1.00030  ...  32.776406  57.915055
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 08:55:00.280250
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:35:00+00:00  1.00079  1.00096  ...  34.588574  56.885326
+2022-10-26 12:40:00+00:00  1.00060  1.00062  ...  32.244724  57.132053
+2022-10-26 12:45:00+00:00  1.00110  1.00110  ...  37.566969  51.763966
+2022-10-26 12:50:00+00:00  1.00024  1.00030  ...  32.776406  57.915055
+2022-10-26 12:55:00+00:00  1.00051  1.00052  ...  35.104648  55.473341
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:00:00.446723
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:40:00+00:00  1.00060  1.00062  ...  32.244724  57.132053
+2022-10-26 12:45:00+00:00  1.00110  1.00110  ...  37.566969  51.763966
+2022-10-26 12:50:00+00:00  1.00024  1.00030  ...  32.776406  57.915055
+2022-10-26 12:55:00+00:00  1.00051  1.00052  ...  35.104648  55.473341
+2022-10-26 13:00:00+00:00  1.00058  1.00059  ...  35.536924  54.193838
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:05:00.509736
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:45:00+00:00  1.00110  1.00110  ...  37.566969  51.763966
+2022-10-26 12:50:00+00:00  1.00024  1.00030  ...  32.776406  57.915055
+2022-10-26 12:55:00+00:00  1.00051  1.00052  ...  35.104648  55.473341
+2022-10-26 13:00:00+00:00  1.00058  1.00059  ...  35.536924  54.193838
+2022-10-26 13:05:00+00:00  1.00078  1.00082  ...  37.361631  50.705971
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:10:00.314827
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:50:00+00:00  1.00024  1.00030  ...  32.776406  57.915055
+2022-10-26 12:55:00+00:00  1.00051  1.00052  ...  35.104648  55.473341
+2022-10-26 13:00:00+00:00  1.00058  1.00059  ...  35.536924  54.193838
+2022-10-26 13:05:00+00:00  1.00078  1.00082  ...  37.361631  50.705971
+2022-10-26 13:10:00+00:00  1.00071  1.00084  ...  36.312946  50.218348
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:15:01.320992
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 12:55:00+00:00  1.00051  1.00052  ...  35.104648  55.473341
+2022-10-26 13:00:00+00:00  1.00058  1.00059  ...  35.536924  54.193838
+2022-10-26 13:05:00+00:00  1.00078  1.00082  ...  37.361631  50.705971
+2022-10-26 13:10:00+00:00  1.00071  1.00084  ...  36.312946  50.218348
+2022-10-26 13:15:00+00:00  1.00076  1.00076  ...  35.950711  49.717402
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:20:00.543352
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:00:00+00:00  1.00058  1.00059  ...  35.536924  54.193838
+2022-10-26 13:05:00+00:00  1.00078  1.00082  ...  37.361631  50.705971
+2022-10-26 13:10:00+00:00  1.00071  1.00084  ...  36.312946  50.218348
+2022-10-26 13:15:00+00:00  1.00076  1.00076  ...  35.950711  49.717402
+2022-10-26 13:20:00+00:00  1.00074  1.00084  ...  36.722740  48.467783
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:25:01.328221
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:05:00+00:00  1.00078  1.00082  ...  37.361631  50.705971
+2022-10-26 13:10:00+00:00  1.00071  1.00084  ...  36.312946  50.218348
+2022-10-26 13:15:00+00:00  1.00076  1.00076  ...  35.950711  49.717402
+2022-10-26 13:20:00+00:00  1.00074  1.00084  ...  36.722740  48.467783
+2022-10-26 13:25:00+00:00  1.00102  1.00108  ...  39.972378  45.978694
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:30:00.253748
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:10:00+00:00  1.00071  1.00084  ...  36.312946  50.218348
+2022-10-26 13:15:00+00:00  1.00076  1.00076  ...  35.950711  49.717402
+2022-10-26 13:20:00+00:00  1.00074  1.00084  ...  36.722740  48.467783
+2022-10-26 13:25:00+00:00  1.00102  1.00108  ...  39.972378  45.978694
+2022-10-26 13:30:00+00:00  1.00098  1.00100  ...  37.712822  47.293086
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:35:00.409373
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:15:00+00:00  1.00076  1.00076  ...  35.950711  49.717402
+2022-10-26 13:20:00+00:00  1.00074  1.00084  ...  36.722740  48.467783
+2022-10-26 13:25:00+00:00  1.00102  1.00108  ...  39.972378  45.978694
+2022-10-26 13:30:00+00:00  1.00098  1.00100  ...  37.712822  47.293086
+2022-10-26 13:35:00+00:00  1.00190  1.00192  ...  47.118197  37.607221
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:40:00.377055
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:20:00+00:00  1.00074  1.00084  ...  36.722740  48.467783
+2022-10-26 13:25:00+00:00  1.00102  1.00108  ...  39.972378  45.978694
+2022-10-26 13:30:00+00:00  1.00098  1.00100  ...  37.712822  47.293086
+2022-10-26 13:35:00+00:00  1.00190  1.00192  ...  47.118197  37.607221
+2022-10-26 13:40:00+00:00  1.00264  1.00267  ...  53.843372  32.577527
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:45:00.253173
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:25:00+00:00  1.00102  1.00108  ...  39.972378  45.978694
+2022-10-26 13:30:00+00:00  1.00098  1.00100  ...  37.712822  47.293086
+2022-10-26 13:35:00+00:00  1.00190  1.00192  ...  47.118197  37.607221
+2022-10-26 13:40:00+00:00  1.00264  1.00267  ...  53.843372  32.577527
+2022-10-26 13:45:00+00:00  1.00201  1.00204  ...  47.609524  40.218132
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:50:00.446289
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:30:00+00:00  1.00098  1.00100  ...  37.712822  47.293086
+2022-10-26 13:35:00+00:00  1.00190  1.00192  ...  47.118197  37.607221
+2022-10-26 13:40:00+00:00  1.00264  1.00267  ...  53.843372  32.577527
+2022-10-26 13:45:00+00:00  1.00201  1.00204  ...  47.609524  40.218132
+2022-10-26 13:50:00+00:00  1.00287  1.00296  ...  53.913338  33.881450
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 09:55:00.465214
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:35:00+00:00  1.00190  1.00192  ...  47.118197  37.607221
+2022-10-26 13:40:00+00:00  1.00264  1.00267  ...  53.843372  32.577527
+2022-10-26 13:45:00+00:00  1.00201  1.00204  ...  47.609524  40.218132
+2022-10-26 13:50:00+00:00  1.00287  1.00296  ...  53.913338  33.881450
+2022-10-26 13:55:00+00:00  1.00237  1.00237  ...  48.860101  38.760606
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:00:00.392432
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:40:00+00:00  1.00264  1.00267  ...  53.843372  32.577527
+2022-10-26 13:45:00+00:00  1.00201  1.00204  ...  47.609524  40.218132
+2022-10-26 13:50:00+00:00  1.00287  1.00296  ...  53.913338  33.881450
+2022-10-26 13:55:00+00:00  1.00237  1.00237  ...  48.860101  38.760606
+2022-10-26 14:00:00+00:00  1.00140  1.00148  ...  42.089165  46.703596
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:05:00.509111
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:45:00+00:00  1.00201  1.00204  ...  47.609524  40.218132
+2022-10-26 13:50:00+00:00  1.00287  1.00296  ...  53.913338  33.881450
+2022-10-26 13:55:00+00:00  1.00237  1.00237  ...  48.860101  38.760606
+2022-10-26 14:00:00+00:00  1.00140  1.00148  ...  42.089165  46.703596
+2022-10-26 14:05:00+00:00  1.00332  1.00332  ...  53.875804  36.461026
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:10:00.424049
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:50:00+00:00  1.00287  1.00296  ...  53.913338  33.881450
+2022-10-26 13:55:00+00:00  1.00237  1.00237  ...  48.860101  38.760606
+2022-10-26 14:00:00+00:00  1.00140  1.00148  ...  42.089165  46.703596
+2022-10-26 14:05:00+00:00  1.00332  1.00332  ...  53.875804  36.461026
+2022-10-26 14:10:00+00:00  1.00341  1.00341  ...  53.215462  35.288979
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:15:01.468269
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 13:55:00+00:00  1.00237  1.00237  ...  48.860101  38.760606
+2022-10-26 14:00:00+00:00  1.00140  1.00148  ...  42.089165  46.703596
+2022-10-26 14:05:00+00:00  1.00332  1.00332  ...  53.875804  36.461026
+2022-10-26 14:10:00+00:00  1.00341  1.00341  ...  53.215462  35.288979
+2022-10-26 14:15:00+00:00  1.00356  1.00366  ...  53.733931  33.608435
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:20:00.415967
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:00:00+00:00  1.00140  1.00148  ...  42.089165  46.703596
+2022-10-26 14:05:00+00:00  1.00332  1.00332  ...  53.875804  36.461026
+2022-10-26 14:10:00+00:00  1.00341  1.00341  ...  53.215462  35.288979
+2022-10-26 14:15:00+00:00  1.00356  1.00366  ...  53.733931  33.608435
+2022-10-26 14:20:00+00:00  1.00384  1.00392  ...  54.845064  32.251285
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:25:00.191146
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:05:00+00:00  1.00332  1.00332  ...  53.875804  36.461026
+2022-10-26 14:10:00+00:00  1.00341  1.00341  ...  53.215462  35.288979
+2022-10-26 14:15:00+00:00  1.00356  1.00366  ...  53.733931  33.608435
+2022-10-26 14:20:00+00:00  1.00384  1.00392  ...  54.845064  32.251285
+2022-10-26 14:25:00+00:00  1.00226  1.00228  ...  44.849342  44.043095
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:30:00.540080
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:10:00+00:00  1.00341  1.00341  ...  53.215462  35.288979
+2022-10-26 14:15:00+00:00  1.00356  1.00366  ...  53.733931  33.608435
+2022-10-26 14:20:00+00:00  1.00384  1.00392  ...  54.845064  32.251285
+2022-10-26 14:25:00+00:00  1.00226  1.00228  ...  44.849342  44.043095
+2022-10-26 14:30:00+00:00  1.00283  1.00286  ...  48.429073  41.184336
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:35:00.611035
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:15:00+00:00  1.00356  1.00366  ...  53.733931  33.608435
+2022-10-26 14:20:00+00:00  1.00384  1.00392  ...  54.845064  32.251285
+2022-10-26 14:25:00+00:00  1.00226  1.00228  ...  44.849342  44.043095
+2022-10-26 14:30:00+00:00  1.00283  1.00286  ...  48.429073  41.184336
+2022-10-26 14:35:00+00:00  1.00196  1.00196  ...  43.500935  47.169413
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:40:00.498587
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:20:00+00:00  1.00384  1.00392  ...  54.845064  32.251285
+2022-10-26 14:25:00+00:00  1.00226  1.00228  ...  44.849342  44.043095
+2022-10-26 14:30:00+00:00  1.00283  1.00286  ...  48.429073  41.184336
+2022-10-26 14:35:00+00:00  1.00196  1.00196  ...  43.500935  47.169413
+2022-10-26 14:40:00+00:00  1.00242  1.00250  ...  46.540880  44.085643
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:45:00.464963
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:25:00+00:00  1.00226  1.00228  ...  44.849342  44.043095
+2022-10-26 14:30:00+00:00  1.00283  1.00286  ...  48.429073  41.184336
+2022-10-26 14:35:00+00:00  1.00196  1.00196  ...  43.500935  47.169413
+2022-10-26 14:40:00+00:00  1.00242  1.00250  ...  46.540880  44.085643
+2022-10-26 14:45:00+00:00  1.00302  1.00306  ...  49.837167  41.367324
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:50:00.308431
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:30:00+00:00  1.00283  1.00286  ...  48.429073  41.184336
+2022-10-26 14:35:00+00:00  1.00196  1.00196  ...  43.500935  47.169413
+2022-10-26 14:40:00+00:00  1.00242  1.00250  ...  46.540880  44.085643
+2022-10-26 14:45:00+00:00  1.00302  1.00306  ...  49.837167  41.367324
+2022-10-26 14:50:00+00:00  1.00436  1.00444  ...  56.660351  35.405738
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 10:55:00.742516
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:35:00+00:00  1.00196  1.00196  ...  43.500935  47.169413
+2022-10-26 14:40:00+00:00  1.00242  1.00250  ...  46.540880  44.085643
+2022-10-26 14:45:00+00:00  1.00302  1.00306  ...  49.837167  41.367324
+2022-10-26 14:50:00+00:00  1.00436  1.00444  ...  56.660351  35.405738
+2022-10-26 14:55:00+00:00  1.00482  1.00486  ...  58.440357  33.781205
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:00:00.514679
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:40:00+00:00  1.00242  1.00250  ...  46.540880  44.085643
+2022-10-26 14:45:00+00:00  1.00302  1.00306  ...  49.837167  41.367324
+2022-10-26 14:50:00+00:00  1.00436  1.00444  ...  56.660351  35.405738
+2022-10-26 14:55:00+00:00  1.00482  1.00486  ...  58.440357  33.781205
+2022-10-26 15:00:00+00:00  1.00480  1.00482  ...  57.855601  34.221436
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:05:00.522586
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:45:00+00:00  1.00302  1.00306  ...  49.837167  41.367324
+2022-10-26 14:50:00+00:00  1.00436  1.00444  ...  56.660351  35.405738
+2022-10-26 14:55:00+00:00  1.00482  1.00486  ...  58.440357  33.781205
+2022-10-26 15:00:00+00:00  1.00480  1.00482  ...  57.855601  34.221436
+2022-10-26 15:05:00+00:00  1.00459  1.00459  ...  56.043861  35.469416
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:10:00.622902
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:50:00+00:00  1.00436  1.00444  ...  56.660351  35.405738
+2022-10-26 14:55:00+00:00  1.00482  1.00486  ...  58.440357  33.781205
+2022-10-26 15:00:00+00:00  1.00480  1.00482  ...  57.855601  34.221436
+2022-10-26 15:05:00+00:00  1.00459  1.00459  ...  56.043861  35.469416
+2022-10-26 15:10:00+00:00  1.00581  1.00586  ...  61.729122  30.449211
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:15:00.835564
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 14:55:00+00:00  1.00482  1.00486  ...  58.440357  33.781205
+2022-10-26 15:00:00+00:00  1.00480  1.00482  ...  57.855601  34.221436
+2022-10-26 15:05:00+00:00  1.00459  1.00459  ...  56.043861  35.469416
+2022-10-26 15:10:00+00:00  1.00581  1.00586  ...  61.729122  30.449211
+2022-10-26 15:15:00+00:00  1.00592  1.00596  ...  61.256944  29.661443
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:20:00.329226
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 15:00:00+00:00  1.00480  1.00482  ...  57.855601  34.221436
+2022-10-26 15:05:00+00:00  1.00459  1.00459  ...  56.043861  35.469416
+2022-10-26 15:10:00+00:00  1.00581  1.00586  ...  61.729122  30.449211
+2022-10-26 15:15:00+00:00  1.00592  1.00596  ...  61.256944  29.661443
+2022-10-26 15:20:00+00:00  1.00666  1.00666  ...  64.285411  27.342868
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:25:01.751248
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 15:05:00+00:00  1.00459  1.00459  ...  56.043861  35.469416
+2022-10-26 15:10:00+00:00  1.00581  1.00586  ...  61.729122  30.449211
+2022-10-26 15:15:00+00:00  1.00592  1.00596  ...  61.256944  29.661443
+2022-10-26 15:20:00+00:00  1.00666  1.00666  ...  64.285411  27.342868
+2022-10-26 15:25:00+00:00  1.00670  1.00670  ...  64.225786  27.114615
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:30:00.327794
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 15:10:00+00:00  1.00581  1.00586  ...  61.729122  30.449211
+2022-10-26 15:15:00+00:00  1.00592  1.00596  ...  61.256944  29.661443
+2022-10-26 15:20:00+00:00  1.00666  1.00666  ...  64.285411  27.342868
+2022-10-26 15:25:00+00:00  1.00670  1.00670  ...  64.225786  27.114615
+2022-10-26 15:30:00+00:00  1.00700  1.00700  ...  65.552974  26.108689
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:35:02.761903
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 15:15:00+00:00  1.00592  1.00596  ...  61.256944  29.661443
+2022-10-26 15:20:00+00:00  1.00666  1.00666  ...  64.285411  27.342868
+2022-10-26 15:25:00+00:00  1.00670  1.00670  ...  64.225786  27.114615
+2022-10-26 15:30:00+00:00  1.00700  1.00700  ...  65.552974  26.108689
+2022-10-26 15:35:00+00:00  1.00734  1.00734  ...  66.201708  24.663473
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:40:00.493621
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 15:20:00+00:00  1.00666  1.00666  ...  64.285411  27.342868
+2022-10-26 15:25:00+00:00  1.00670  1.00670  ...  64.225786  27.114615
+2022-10-26 15:30:00+00:00  1.00700  1.00700  ...  65.552974  26.108689
+2022-10-26 15:35:00+00:00  1.00734  1.00734  ...  66.201708  24.663473
+2022-10-26 15:40:00+00:00  1.00796  1.00796  ...  68.820720  22.752313
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:45:00.339816
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 15:25:00+00:00  1.00670  1.00670  ...  64.225786  27.114615
+2022-10-26 15:30:00+00:00  1.00700  1.00700  ...  65.552974  26.108689
+2022-10-26 15:35:00+00:00  1.00734  1.00734  ...  66.201708  24.663473
+2022-10-26 15:40:00+00:00  1.00796  1.00796  ...  68.820720  22.752313
+2022-10-26 15:45:00+00:00  1.00709  1.00711  ...  61.755432  30.320395
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:50:02.191499
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 15:30:00+00:00  1.00700  1.00700  ...  65.552974  26.108689
+2022-10-26 15:35:00+00:00  1.00734  1.00734  ...  66.201708  24.663473
+2022-10-26 15:40:00+00:00  1.00796  1.00796  ...  68.820720  22.752313
+2022-10-26 15:45:00+00:00  1.00709  1.00711  ...  61.755432  30.320395
+2022-10-26 15:50:00+00:00  1.00671  1.00673  ...  59.361865  32.896065
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Candle closed, doing stuff... | Current Time: 11:55:01.159029
+Calculating features: ['paverage', 'proc', 'atr', 'adx']
+Index(['open', 'high', 'low', 'close', 'volume', 'paverage2open',
+       'paverage2high', 'paverage2low', 'paverage2close', 'proc12close',
+       'proc13close', 'proc14close', 'proc15close', 'ATRr_14', 'ADX_14',
+       'DMP_14', 'DMN_14'],
+      dtype='object')
+                              open     high      low  ...  ADX_14  DMP_14  DMN_14
+time                                                  ...                        
+2022-10-21 07:05:00+00:00  0.97648  0.97648  0.97644  ...     NaN     NaN     NaN
+2022-10-21 07:10:00+00:00  0.97677  0.97677  0.97674  ...     NaN     NaN     NaN
+2022-10-21 07:15:00+00:00  0.97665  0.97670  0.97664  ...     NaN     NaN     NaN
+2022-10-21 07:20:00+00:00  0.97780  0.97784  0.97778  ...     NaN     NaN     NaN
+2022-10-21 07:25:00+00:00  0.97964  0.97976  0.97964  ...     NaN     NaN     NaN
+
+[5 rows x 17 columns]
+                              open     high  ...     DMP_14     DMN_14
+time                                         ...                      
+2022-10-26 15:35:00+00:00  1.00734  1.00734  ...  66.201708  24.663473
+2022-10-26 15:40:00+00:00  1.00796  1.00796  ...  68.820720  22.752313
+2022-10-26 15:45:00+00:00  1.00709  1.00711  ...  61.755432  30.320395
+2022-10-26 15:50:00+00:00  1.00671  1.00673  ...  59.361865  32.896065
+2022-10-26 15:55:00+00:00  1.00636  1.00636  ...  56.328122  35.942179
+
+[5 rows x 17 columns]
+Features calculated.
+ADX < 30, prediction = 0
+Reached end of trading hours. | 

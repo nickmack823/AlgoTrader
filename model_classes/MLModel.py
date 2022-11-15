@@ -11,7 +11,7 @@ class MLModel:
     ''' Class for the vectorized backtesting of Machine Learning-based trading strategies (Classification).
     '''
 
-    def __init__(self, symbol, start, end, timeframe, tc, features=None):
+    def __init__(self, symbol, start, end, timeframe, tc=0.00007, features=None):
         self.symbol = symbol
         self.start = start
         self.end = end

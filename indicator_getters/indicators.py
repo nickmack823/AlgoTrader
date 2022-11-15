@@ -131,12 +131,12 @@ class IndicatorCalculator:
 
     def calculate_features(self, features=None):
         if features is None:
-            print('Calculating all features...')
+            # print('Calculating all features...')
             functions = [self.paverage, self.stochastic, self.proc, self.macd, self.momentum, self.bollinger,
                          self.williams, self.sinewave, self.cci, self.slope, self.ema, self.sma, self.vwap,
                          self.stdev, self.atr, self.rsi, self.adosc, self.adx, self.chaikin]
         else:
-            print(f'Calculating features: {features}')
+            # print(f'Calculating features: {features}')
             functions = []
             for key in self.features_dict.keys():
                 for feat in features:
@@ -146,8 +146,8 @@ class IndicatorCalculator:
         for func in functions:
             func()
 
-        self.display_data()
-        print('Features calculated.')
+        # self.display_data()
+        # print('Features calculated.')
 
     def get_data(self):
         return self.data

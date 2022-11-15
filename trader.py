@@ -71,7 +71,7 @@ class Trader(tpqoa.tpqoa):
             return False
 
     def get_recent_bar(self):
-        print(f'Getting recently closed bar...')
+        # print(f'Getting recently closed bar...')
         while True:  # Repeat until bar retrieved
             time.sleep(1)
             now = datetime.utcnow()
@@ -96,7 +96,7 @@ class Trader(tpqoa.tpqoa):
         self.feat_collector.calculate_features(self.indicators_to_get)
         self.data = self.feat_collector.get_data()
         self.last_bar = self.data.index[-1]
-        print('Recently closed bar retrieved, features calculated.')
+        # print('Recently closed bar retrieved, features calculated.')
 
     def get_historical_data(self, days=1):
         print(f'Getting historical data from {days} days ago to now...')
@@ -133,15 +133,14 @@ class Trader(tpqoa.tpqoa):
         recent_tick = pd.to_datetime(tick_time)
 
         # # NOTE: OANDA time is 4 hours ahead (GMT+0)
-        if recent_tick.time() >= pd.to_datetime("17:00").time():  # Stop trading at 1pm EST
+        if datetime.now().hour >= 12:  # Stop trading at 12pm EST
             self.terminate_session('Reached end of trading hours.')
-
-        # Check for stop loss/take profit triggers
-        self.check_price_triggers()
 
         # On candle close
         if recent_tick - self.last_bar > self.timeframe:
-            print('Candle closed, doing stuff...')
+            print(f'Candle closed, doing stuff... | Current Time: {datetime.now().time()}')
+            # Check for stop loss/take profit triggers
+            self.check_price_triggers()
             self.get_recent_bar()  # Get recently closed candle data
             self.check_strategy()  # Check for model/strategy trigger
             self.execute_trades()  # Apply model/strategy decision
@@ -162,7 +161,6 @@ class Trader(tpqoa.tpqoa):
     def check_strategy(self):
         if self.strategy == 'model':
             self.prediction = self.model.predict(self.data[self.model_features].iloc[-1].to_frame().T)[0]
-            print('model ooga ooga')
         elif self.strategy == 'macd_scalp':
             print(self.data.index)
             price = self.data['close'].iloc[-1]
@@ -185,24 +183,24 @@ class Trader(tpqoa.tpqoa):
         elif self.strategy == 'model_adx':
             curr_adx = self.data['ADX_14'].iloc[-1]
             if curr_adx < 30:
-                print('ADX not good')
-                self.prediction = 0
+                print('ADX < 30, prediction = 0')
+                self.prediction = 0  # Don't make a new trade
             else:
-                print('ADX good')
+                print('ADX > 0, make prediction')
                 self.prediction = self.model.predict(self.data[self.model_features].iloc[-1].to_frame().T)[0]
 
     def check_price_triggers(self):
         # Check for stop loss trigger
         if self.stop_loss is not None:
-            if self.position == 1 and self.tick_data['ask'].iloc[-1] <= self.stop_loss:
+            if self.position == 1 and self.data['close'].iloc[-1] <= self.stop_loss:
                 self.close_current_position(reason='Stop loss triggered (Long Position)')
-            elif self.position == -1 and self.tick_data['bid'].iloc[-1] >= self.stop_loss:
+            elif self.position == -1 and self.data['close'].iloc[-1] >= self.stop_loss:
                 self.close_current_position(reason='Stop loss triggered (Short Position)')
         # Check for take profit trigger
         if self.take_profit is not None:
-            if self.position == 1 and self.tick_data['ask'].iloc[-1] >= self.take_profit:
+            if self.position == 1 and self.data['close'].iloc[-1] >= self.take_profit:
                 self.close_current_position(reason='Take profit triggered (Long Position)')
-            elif self.position == -1 and self.tick_data['bid'].iloc[-1] <= self.take_profit:
+            elif self.position == -1 and self.data['close'].iloc[-1] <= self.take_profit:
                 self.close_current_position(reason='Take profit triggered (Short Position)')
 
     def stream(self, stop=None):
@@ -217,7 +215,7 @@ class Trader(tpqoa.tpqoa):
                 self.stop_loss = price - (atr * self.sl_mult)
             elif self.position == -1:
                 self.stop_loss = price + (atr * self.sl_mult)
-            print(f'Setting initial stop loss to {self.stop_loss} | Position == {self.position}')
+            print(f'Setting stop loss to {self.stop_loss} | Position == {self.position}')
         # Trailing stop loss updates if price moves favorably
         else:
             price_back_two_bars = self.data['close'].iloc[-2]
@@ -234,42 +232,35 @@ class Trader(tpqoa.tpqoa):
 
         this_hour = datetime.now().hour
 
-        if this_hour < 3 or this_hour > 13:
+        if this_hour < 3 or this_hour > 12:
             self.terminate_session('Reached end of trading hours bazinga')
 
-        if self.prediction == 1:
-            if self.position == 0:
-                order = self.create_order(self.instrument, self.units, suppress=True, ret=True)
-                self.position = 1
-
+        if self.prediction == 1:  # signal to go long
+            if self.position in [0, -1]:
+                self.buy()
                 self.take_profit = price + (atr * self.tp_mult)
                 self.set_stop_loss(trailing=False)
-                self.report_trade(order, "GOING LONG")
-            elif self.position == -1:
-                order = self.create_order(self.instrument, self.units * 2, suppress=True, ret=True)
-                self.position = 1
-
+        elif self.prediction == -1:  # signal to go short
+            if self.position in [0, 1]:
+                self.sell()
                 self.take_profit = price + (atr * self.tp_mult)
                 self.set_stop_loss(trailing=False)
-                self.report_trade(order, "GOING LONG")
-        elif self.prediction == -1:
-            if self.position == 0:
-                order = self.create_order(self.instrument, -self.units, suppress=True, ret=True)
-                self.position = -1
-
-                self.take_profit = price - (atr * 3)
-                self.set_stop_loss(trailing=False)
-                self.report_trade(order, "GOING SHORT")
-            elif self.position == 1:
-                order = self.create_order(self.instrument, -self.units * 2, suppress=True, ret=True)
-                self.position = -1
-
-                self.take_profit = price - (atr * 3)
-                self.set_stop_loss(trailing=False)
-                self.report_trade(order, "GOING SHORT")
         elif self.prediction == 0:
             pass
-            # self.close_current_position('Prediction == 0')
+
+    def buy(self):
+        if self.position == 0:
+            order = self.create_order(self.instrument, self.units, suppress=True, ret=True)
+        else:
+            order = self.create_order(self.instrument, 2 * self.units, suppress=True, ret=True)
+        self.report_trade(order, "GOING LONG")
+
+    def sell(self):
+        if self.position == 0:
+            order = self.create_order(self.instrument, -self.units, suppress=True, ret=True)
+        else:
+            order = self.create_order(self.instrument, 2 * -self.units, suppress=True, ret=True)
+        self.report_trade(order, "GOING SHORT")
 
     def report_trade(self, order, going):
         trade_time = order["time"]
@@ -333,11 +324,6 @@ class Trader(tpqoa.tpqoa):
             self.stop_loss = None  # reset stop loss
             self.take_profit = None  # reset take profit
 
-            # Check profit/loss for day
-            # profit_loss = self.max_profit_loss_reached()
-            # if profit_loss is not False:
-            #     self.terminate_session(profit_loss)
-
     def terminate_session(self, cause):
         self.stop_stream = True
         if self.position != 0:
@@ -345,6 +331,7 @@ class Trader(tpqoa.tpqoa):
             self.close_current_position(reason='Reached end of trading hours.')
         print(cause, end=" | ")
         self.record_daily_trades()  # Write today's transaction history to a .csv
+        # sys.stdout.close()
         sys.exit()
 
     def record_daily_trades(self):
@@ -389,7 +376,7 @@ class Trader(tpqoa.tpqoa):
                 .replace(minute=int(date_string[14:16])) \
                 .replace(second=int(date_string[17:19]))
             transaction['date'] = date.date()
-            transaction['time'] = date.time()
+            transaction['time'] = (date - timedelta(hours=4)).time()
 
             # Prettify
             ordered_transaction = {
@@ -426,12 +413,17 @@ if __name__ == "__main__":
     # TODO: Set trailing stop loss equal to price +- 2x ATR
     curr_hour = datetime.now().hour
 
-    while curr_hour < 3 or curr_hour > 13:
+    while curr_hour < 3 or curr_hour > 12:
         time.sleep(60)
         print('checking hour again...')
         curr_hour = datetime.now().hour
         print(f'hour is {curr_hour}')
 
+    sys.stdout = open('model_adx_demo_console.txt', 'a')
+    print(datetime.now())
+    print("=============================")
+
     td = Trader(config_file=r'C:\Users\Nick\Documents\GitHub\AlgoTrader\oanda.cfg',
                 instrument='EUR_USD', timeframe='5m', strategy='model_adx')
     td.start_trading(days=5)
+
