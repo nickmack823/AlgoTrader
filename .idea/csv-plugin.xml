@@ -3,84 +3,154 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="\backtesting\tests\2012-10-01 to 2022-10-21\EUR_USD-2012-10-01 to 2022-10-21-model_adx-model 2000-01-01 to 2022-10-22-optimization.csv">
+        <entry key="\backtesting\tests\AUD_NZD\D\2020-01-01 to 2022-11-04\('atr',).csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\backtesting\tests\2012-10-01 to 2022-10-21\EUR_USD-2022-10-01 to 2022-10-21-macd_solo-optimization.csv">
+        <entry key="\backtesting\tests\AUD_NZD\D\2022-01-01 to 2022-11-04\('atr', 'atr_sl', 'atr_tp').csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\backtesting\tests\2022-10-01 to 2022-10-21\EUR_USD-2022-10-01 to 2022-10-21-macd_solo-optimization.csv">
+        <entry key="\backtesting\tests\AUD_NZD\D\2022-01-01 to 2022-11-04\('atr',).csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\backtesting\tests\2022-10-01 to 2022-10-21\EUR_USD-2022-10-01 to 2022-10-21-model_adx-optimization.csv">
+        <entry key="\backtesting\tests\AUD_NZD\H1\2020-01-01 to 2022-11-04\('atr',).csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\backtesting\tests\2022-10-01 to 2022-10-21\EUR_USD-2022-10-01 to 2022-10-21-model_adx_macd-model 2000-01-01 to 2022-10-25-optimization.csv">
+        <entry key="\backtesting\tests\AUD_NZD\H1\2022-01-01 to 2022-11-04\('atr', 'atr_sl', 'atr_tp').csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\backtesting\tests\2022-10-01 to 2022-10-21\EUR_USD-2022-10-01 to 2022-10-21-model_chaikin-optimization.csv">
+        <entry key="\backtesting\tests\AUD_NZD\H1\2022-01-01 to 2022-11-04\('atr',).csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\backtesting\tests\2022-10-20 to 2022-10-25\EUR_USD-2022-10-20 to 2022-10-25-model_adx-model 2000-01-01 to 2022-10-22-optimization.csv">
+        <entry key="\backtesting\tests\AUD_NZD\H4\2020-01-01 to 2022-11-04\('atr',).csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\backtesting\tests\2022-10-24 to 2022-10-25\EUR_USD-2022-10-24 to 2022-10-25-model_adx-model 2000-01-01 to 2022-10-22-optimization.csv">
+        <entry key="\backtesting\tests\AUD_NZD\H4\2022-01-01 to 2022-11-04\('atr', 'atr_sl', 'atr_tp').csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\forex_data\EUR_USD_2022-10-01_2022-10-21_M5_features.csv">
+        <entry key="\backtesting\tests\AUD_NZD\H4\2022-01-01 to 2022-11-04\('atr',).csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\forex_data\EUR_USD_2022-10-01_2022-10-25_H1.csv">
+        <entry key="\backtesting\tests\AUD_NZD\M15\2020-01-01 to 2022-11-04\('atr',).csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\forex_data\EUR_USD_2022-10-20_2022-10-25_M5_features.csv">
+        <entry key="\backtesting\tests\AUD_NZD\M15\2022-01-01 to 2022-11-04\('atr', 'atr_sl', 'atr_tp').csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="\model_adx_demo_trades.csv">
+        <entry key="\backtesting\tests\AUD_NZD\M15\2022-01-01 to 2022-11-04\('atr',).csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\AUD_NZD\M30\2012-01-01 to 2022-11-04\('atr', 'atr_sl', 'atr_tp', 'rsi', 'adx_period', 'adx_cutoff').csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\AUD_NZD\M30\2020-01-01 to 2022-11-04\('adx_period', 'adx_cutoff').csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\AUD_NZD\M30\2020-01-01 to 2022-11-04\('atr', 'atr_sl', 'atr_tp', 'rsi', 'adx_period', 'adx_cutoff').csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\AUD_NZD\M30\2020-01-01 to 2022-11-04\('atr',).csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\AUD_NZD\M30\2022-01-01 to 2022-11-04\('atr', 'atr_sl', 'atr_tp').csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\AUD_NZD\M30\2022-01-01 to 2022-11-04\('atr',).csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\AUD_NZD\M30\2022-06-01 to 2022-11-04\('atr', 'atr_sl', 'atr_tp').csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\AUD_NZD\M30\2022-06-01 to 2022-11-04\('atr', 'atr_sl', 'atr_tp', 'rsi').csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\AUD_NZD\M5\2020-01-01 to 2022-11-04\('atr',).csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\backtesting\tests\AUD_NZD\M5\2022-01-01 to 2022-11-04\('atr',).csv">
           <value>
             <Attribute>
               <option name="separator" value="," />

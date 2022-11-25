@@ -1,2 +1,7 @@
 .csv
 *.csv
+*.log
+*.mp3
+*.html
+*.txt
+*.joblib

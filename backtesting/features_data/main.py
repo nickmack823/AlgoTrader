@@ -10,7 +10,7 @@ from sklearn.linear_model import LinearRegression
 
 # (1) Load data
 features_path = f'EURUSD_1hr_2022_features.csv'
-prices = pd.read_csv("../forex_data/EURUSD_1hr_2022.csv")
+prices = pd.read_csv("../backtesting/forex_data/EURUSD_1hr_2022.csv")
 # Rename gmt time to date
 prices.columns = ['date', 'open', 'high', 'low', 'close', 'volume']
 # Default DT is M-D-Y, Dukoscopy is D-M-Y
