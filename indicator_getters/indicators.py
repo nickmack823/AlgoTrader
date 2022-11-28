@@ -99,10 +99,10 @@ class IndicatorCalculator:
 
     def ema(self, periods=(10, 50, 100)):
         for period in periods:
-            self.data.ta.ema(length=period, append=True)
+            self.data.ta.get_ema(length=period, append=True)
 
     def sma(self):
-        self.data.ta.sma(append=True)
+        self.data.ta.get_sma(append=True)
 
     def vwap(self):
         self.data.ta.vwap(append=True)
@@ -111,7 +111,7 @@ class IndicatorCalculator:
         self.data.ta.tos_stdevall(append=True)
 
     def atr(self):
-        self.data.ta.atr(append=True)
+        self.data.ta.get_atr(append=True)
 
     def rsi(self):
         self.data.ta.rsi(append=True)

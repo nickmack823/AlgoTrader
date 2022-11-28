@@ -101,6 +101,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\backtesting\tests\AUD_NZD\M30\2020-01-01 to 2022-11-04\('atr', 'atr_sl', 'atr_tp').csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\backtesting\tests\AUD_NZD\M30\2020-01-01 to 2022-11-04\('atr', 'atr_sl', 'atr_tp', 'rsi', 'adx_period', 'adx_cutoff').csv">
           <value>
             <Attribute>

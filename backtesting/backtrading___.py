@@ -7,14 +7,12 @@ import numpy
 import quantstats
 import tpqoa
 import logging
-import coloredlogs
 from playsound import playsound
 from os.path import exists
 from indicator_getters.indicators import IndicatorCalculator
 from strategies import *
 
 n_cores = multiprocessing.cpu_count()  # Number of logical cores on pc
-
 logger = None
 
 
@@ -51,9 +49,6 @@ def get_logger():
     file_log_handler.setFormatter(formatter)
     stderr_log_handler.setFormatter(formatter)
 
-    # Coloring
-    coloredlogs.install(fmt="%(asctime)s %(name)s[%(process)d] %(message)s", level='INFO', logger=logger)
-
     return logger
 
 
@@ -83,21 +78,6 @@ def build_cerebro(data, optimizing=False):
     return cerebro
 
 
-def combinate(dict_of_items):
-    logger.info("Combinating...")
-    params, values = zip(*dict_of_items.items())
-    possible_combinations = sum(1 for i in itertools.product(*values))
-
-    # If more than 1 million combos, limit the number of combinations made
-    if possible_combinations > 1000000:
-        sliced = itertools.islice(itertools.product(*values), 1000000)
-        all_combos = [dict(zip(params, val)) for val in sliced]
-    else:
-        all_combos = [dict(zip(params, val)) for val in itertools.product(*values)]
-    logger.info(f"Combinated ({len(all_combos)} combinations).")
-    return all_combos
-
-
 def fill_queue(q, items):
     # Fill queue with combos for workers
     while len(items) > 0:
@@ -123,6 +103,7 @@ def get_strategy_params(strategy):
     return params
 
 
+# Combinate params and remove already tested ones
 def get_param_combos(params_to_test, test_path):
     all_combos = combinate(params_to_test)
 
@@ -197,7 +178,7 @@ def parse_analysis(analysis):
     return final_results
 
 
-def test_combo(cerebro, combo):
+def test_combo(combo, cerebro):
     args = combo.copy()
     args.update({"logging": False})
 
@@ -217,11 +198,11 @@ def test_combo(cerebro, combo):
     combo_str = str(combo)
     result_dict = {'params': combo_str, 'sqn': round(sqn_analysis['sqn'], 3)}
     result_dict.update(metrics_parsed)
-
+    print(result_dict)
     return result_dict
 
 
-def worker_test_combos(in_q, out_q, strategy, data):
+def worker_test_combos(in_q, out_q, data, strategy):
     # Build cerebro
     cerebro = build_cerebro(optimizing=False, data=data)
     cerebro.addstrategy(strategy)
@@ -237,7 +218,7 @@ def worker_test_combos(in_q, out_q, strategy, data):
             return
 
         # logger.info(f"Worker (Core {core_num}) testing {combo}")
-        result = test_combo(cerebro, combo)
+        result = test_combo(combo, cerebro)
         out_q.put(result)
 
 
@@ -245,6 +226,21 @@ def chunks(lst, n):
     """Yield n number of striped chunks from list."""
     for i in range(0, n):
         yield lst[i::n]
+
+
+def combinate(dict_of_items):
+    logger.info("Combinating...")
+    params, values = zip(*dict_of_items.items())
+    possible_combinations = sum(1 for i in itertools.product(*values))
+
+    # If more than 1 million combos, limit the number of combinations made
+    if possible_combinations > 1000000:
+        sliced = itertools.islice(itertools.product(*values), 1000000)
+        all_combos = [dict(zip(params, val)) for val in sliced]
+    else:
+        all_combos = [dict(zip(params, val)) for val in itertools.product(*values)]
+    logger.info(f"Combinated ({len(all_combos)} combinations).")
+    return all_combos
 
 
 class Data(tpqoa.tpqoa):
@@ -307,7 +303,6 @@ class Data(tpqoa.tpqoa):
         return dates_dir
 
     def save_results(self, results):
-        print(results)
         # Save results to a df
         logger.info(f'(Data Handler) Saving {len(results)} test results...')
         results_df = None
@@ -338,33 +333,37 @@ class Data(tpqoa.tpqoa):
 
 
 class GeneticOptimizer:
-    def __init__(self, params, evolution_rules):
+    def __init__(self, strategy, params, evolution_rules):
 
+        self.data = data_handler.data
+        self.strategy = strategy
         self.params = params
         self.population_size = evolution_rules['population_size']
         self.generations = evolution_rules['generations']
         self.gen_ancestor_percentage = evolution_rules['gen_ancestor_percentage']
         self.fitness_target = evolution_rules['fitness_target']
-        self.do_shakeup = evolution_rules['shakeup']
+        self.shakeup = evolution_rules['shakeup']
         self.shakeup_percentage = evolution_rules[
             'shakeup_percentage']  # Percentage of each gen to be randomly selected from all combos
         self.evolving = False
 
-        logger.info("Combinating...")
+        # Get test path
         params, values = zip(*self.params.items())
-        self.all_combos = [dict(zip(params, val)) for val in itertools.product(*values)]
+        path = data_handler.test_dir() + f"/{params}.csv"
+        data_handler.set_test_path(path)
+
+        self.all_combos = get_param_combos(self.params, path)
         random.shuffle(self.all_combos)
-        logger.info(f"Combinated ({len(self.all_combos)} combinations).")
 
     # Initialize the ground-zero population (randomly select from all combos)
     def initialize_population(self, population_size):
         logger.info("Spawning Generation Zero...")
 
         population = []
-        while len(population) != population_size and len(self.all_combos) > 0:
+        for n in range(population_size):
             combo = random.choice(self.all_combos)
-            self.all_combos.remove(combo)  # Remove combo from possible combo list since it's going to be tested
             population.append(combo)
+            # self.all_combos.remove(combo)
 
         logger.info("Generation Zero Spawned.")
         return population
@@ -377,36 +376,49 @@ class GeneticOptimizer:
             items.remove(combo)
 
     # Evaluate the fitness of this combo
-    def get_fitness(self, result):
-        sqn = result['sqn']
+    def get_fitness(self, combo):
+        results = test_combo(combo, self.data, self.strategy)
+        sqn = results['sqn']
         fitness_value = sqn - self.fitness_target
         if fitness_value == 0:
             # The best solution for target
-            return 86753090000000000000000, sqn, result
+            return 86753090000000000000000, sqn, results
         else:
             # Smaller result (closer to zero) yields a higher rank value
-            return round(abs(1 / fitness_value), 3), sqn, result
+            return round(abs(1 / fitness_value), 3), sqn, results
+
+    # This is run by the worker threads
+    def get_fitness_of_queue(self, population_queue, fitness_results):
+        # Look for work to do while evolving
+        while self.evolving:
+
+            # Get fitness of members of the population
+            while not population_queue.empty():
+                combo = population_queue.get()
+                if combo is None:
+                    population_queue.put(None)
+                    return
+
+                # Send out the result
+                fitness_results.put(self.get_fitness(combo))
 
     # Gets fitness results of each combo in population from worker threads
-    def calculate_population_fitness(self, population_test_results):
-        fitnesses = []
+    def calculate_population_fitness(self, fitness_results):
+        results = []
         tests_done = 0
         while tests_done != self.population_size:
             # Look for fitness results from the workers
-            pop_result = population_test_results.get()
-            fitness = self.get_fitness(pop_result)
-            fitnesses.append(fitness)
+            results.append(fitness_results.get())
             tests_done += 1
-            sys.stdout.write('\r' + f"{tests_done}/{self.population_size} solutions fitted.")
+            sys.stdout.write('\r' + f"{tests_done}/{self.population_size} fitted.")
         sys.stdout.write('\r' + "")
 
-        return fitnesses
+        return results
 
     def spawn_original_descendant(self, ancestors, all_previous_solutions):
 
         # Extract "genes" (parameter values) from the ancestors
         genes = []
-
         # Extract genes (params) and their values from the top solutions
         for solution in ancestors:
             params = solution[2]
@@ -443,22 +455,21 @@ class GeneticOptimizer:
         return new_descendant
 
     # Go through generations (combos=initial population)
-    def evolve(self, strategy):
+    def evolve(self):
         logger.info("=== BEGINNING EVOLUTION ===")
         self.evolving = True
         logger.info(f"- Generations: {self.generations}")
         logger.info(f"- Population Size: {self.population_size}")
 
+        # For holding previous solutions
         all_previous_solutions = []
 
+        # Spawn first generation
         current_generation = self.initialize_population(self.population_size)
 
-        population_queue, population_results = multiprocessing.Queue(maxsize=100), multiprocessing.Queue()
+        population_queue, fitness_results = multiprocessing.Queue(maxsize=100), multiprocessing.Queue()
 
-        # workers = [multiprocessing.Process(target=self.get_fitness_of_queue, args=(population_queue, fitness_results))
-        #            for core in range(0, n_cores - 2)]
-        workers = [multiprocessing.Process(target=worker_test_combos,
-                                           args=(population_queue, population_results, strategy, data_handler.data))
+        workers = [multiprocessing.Process(target=self.get_fitness_of_queue, args=(population_queue, fitness_results))
                    for core in range(0, n_cores - 2)]
 
         queue_filler = multiprocessing.Process(target=self.fill_population_queue,
@@ -477,7 +488,11 @@ class GeneticOptimizer:
             all_previous_solutions.extend(current_generation)
 
             # Use workers to calculate fitness values of each member of the initial population
-            ranked_solutions = self.calculate_population_fitness(population_test_results=population_results)
+            ranked_solutions = self.calculate_population_fitness(fitness_results=fitness_results)
+
+            # Save generation to test file
+            results_to_save = [solution[2] for solution in ranked_solutions]
+            data_handler.save_results(results_to_save)
 
             # Sort all solutions by fitness value
             ranked_solutions.sort(key=lambda x: x[0])
@@ -496,7 +511,7 @@ class GeneticOptimizer:
             top_10 = top_10[:10]
 
             # See if we need to toss in some random solutions
-            if self.do_shakeup:
+            if self.shakeup:
                 solutions_from_genes = round(self.population_size * (1 - self.shakeup_percentage))
             else:
                 solutions_from_genes = self.population_size
@@ -511,7 +526,7 @@ class GeneticOptimizer:
             logger.info("Spawned.")
 
             # Throw some random individuals into the next generation to freshen things
-            if self.do_shakeup:
+            if self.shakeup:
                 shakeup_count = round(self.population_size * self.shakeup_percentage)
                 next_generation.extend(
                     random.sample(self.all_combos, shakeup_count))  # Add random sample to next generation
@@ -524,10 +539,6 @@ class GeneticOptimizer:
 
             logger.info(f"Current Top 10: {top_10}")
 
-            # Save generation to results file
-            data_handler.save_results([r[2] for r in ranked_solutions])
-            data_handler.final_sort_tests('sqn')
-
         # Evolution finished, signal threads to end
         self.evolving = False
         population_queue.put(None)
@@ -535,24 +546,29 @@ class GeneticOptimizer:
 
 class Tester:
 
-    def __init__(self, logging=True):
-        # self.params = params
-        self.dates_dir = None
+    def __init__(self, strategy, logging=True):
         self.symbol = symbol
         self.timeframe = timeframe
         self.start = start
         self.end = end
         self.logging = logging
+
+        self.data = data_handler.data
+        self.strategy = strategy
         self.cerebro = None
 
     def opt_test_mp(self, strategy, params_to_test, randomize=False):
+        # Set path for tests
+        params, values = zip(*params_to_test.items())
+        path = data_handler.test_dir() + f"/{params}.csv"
+        data_handler.set_test_path(path)
 
-        # Get all possible param combinations
-        param_combos = get_param_combos(params_to_test=params_to_test, test_path=data_handler.test_path)
+        param_combos = get_param_combos(params_to_test=params_to_test, test_path=path)
 
         # Test parameter combinations
         logger.info(f"{len(param_combos)} combinations to test")
 
+        # If Monte Carlo, shuffle
         if randomize:
             random.shuffle(param_combos)
 
@@ -561,9 +577,9 @@ class Tester:
         # (queue.put() will pause until space becomes available, i.e. queue.get() called by worker)
         in_q, out_q = multiprocessing.Queue(maxsize=100), multiprocessing.Queue()
 
-        # Create workers to do the work
+        # Create workers
         # (create number of workers == to number of logical cores minus two (one for main thread, one for filling queue))
-        workers = [multiprocessing.Process(target=worker_test_combos, args=(in_q, out_q, strategy, data_handler.data))
+        workers = [multiprocessing.Process(target=worker_test_combos, args=(in_q, out_q, self.data, strategy))
                    for core in range(0, n_cores - 2)]
 
         # Create a worker to fill the queue...
@@ -610,9 +626,9 @@ class Tester:
         # Sort by sqn
         data_handler.final_sort_tests("sqn")
 
-    def test(self, strategy, params=None, logging=False):
+    def test(self, params=None, logging=False):
         # Build cerebro
-        self.cerebro = build_cerebro(optimizing=False, data=data_handler.data)
+        self.cerebro = build_cerebro(optimizing=False, data=self.data)
 
         # Add metric analyzer
         self.cerebro.addanalyzer(bt.analyzers.PyFolio, _name='PyFolio')
@@ -621,7 +637,7 @@ class Tester:
         if params is None:
             params = {}
         params.update({'logging': logging})
-        self.cerebro.addstrategy(strategy, **params)
+        self.cerebro.addstrategy(self.strategy, **params)
 
         # Test (returns list of strategies tested
         results = self.cerebro.run()
@@ -645,10 +661,7 @@ class Tester:
         # Make test directory
         params.pop('logging')
         param_names, values = zip(*params.items())
-        test_dir = f"tests/{self.symbol}_{self.timeframe}_{self.start} to {self.end}"
-        path = test_dir + f"/{param_names}.csv"
-        if not exists(test_dir):
-            os.mkdir(test_dir)
+        path = data_handler.test_dir() + f"/{param_names}.csv"
         curr_df = pd.DataFrame(data=result_dict, index=[0])
         # Save to CSV
         if exists(path):
@@ -676,20 +689,30 @@ if __name__ == "__main__":
     # TODO: Look into Aroon (for direction of trend), DPO (for entries?)
 
     logger = get_logger()
-
+    # strategy = Trend
     symbol, timeframe, start, end = "AUD_NZD", "M30", "2020-01-01", "2022-11-04"
     data_handler = Data()
-
     logger.info((symbol, timeframe, start, end))
 
     # Params to optimize
+    # param_opt_ranges = {
+    #     'atr': numpy.arange(4, 32, step=2),
+    #     'atr_sl': numpy.arange(1, 4.25, step=0.25),
+    #     'atr_tp': numpy.arange(1, 4.25, step=0.25),
+    #     'rsi': numpy.arange(4, 30, step=2),
+    #     'adx': numpy.arange(4, 30, step=2),
+    #     'adx_cutoff': numpy.arange(25, 40, step=5),
+    #     'sma': numpy.arange(20, 150, step=5)
+    # }
+
     param_opt_ranges = {
-        'atr': numpy.arange(4, 32, step=2),
-        'atr_sl': numpy.arange(1, 4.25, step=0.25),
-        'atr_tp': numpy.arange(1, 4.25, step=0.25),
-        # 'rsi': numpy.arange(4, 30, step=2),
-        # 'adx_period': numpy.arange(4, 30, step=2),
-        # 'adx_cutoff': numpy.arange(25, 40, step=5)
+        'atr': [10],
+        'atr_sl': [2.25],
+        'atr_tp': [1.0],
+        'rsi': [12],
+        'adx': [14],
+        'adx_cutoff': [30],
+        'sma': numpy.arange(20, 102, step=2)
     }
 
     test_details = {
@@ -700,39 +723,31 @@ if __name__ == "__main__":
         'end': '2022-11-04'
     }
 
-    # Set path for tests
-    param_names, ___ = zip(*param_opt_ranges.items())
-    path = data_handler.test_dir() + f"/{param_names}.csv"
-    data_handler.set_test_path(path)
-
-    # tester = Tester()
-    # tester.opt_test_mp(strategy=Trend, params_to_test=param_opt_ranges, randomize=True)
-
-    # test_one = {'atr': 10, 'atr_sl': 2.25, 'atr_tp': 1.0, 'rsi': 12, 'adx_period': 14, 'adx_cutoff': 30}
+    tester = Tester(Trend)
+    tester.opt_test_mp(strategy=Trend, params_to_test=param_opt_ranges, randomize=True)
+    # test_one = {'atr': 10, 'atr_sl': 2.25, 'atr_tp': 1.0, 'rsi': 12, 'adx': 14, 'adx_cutoff': 30}
     # tester.test(Trend, test_one, logging=False)
+    # optimize(details=test_details, param_settings=param_opt_ranges)
+    #
 
     # Genetic Algorithm
-
     evolution_parameters = {
-        "population_size": 50,
-        "generations": 50,
+        "population_size": 1250,
+        "generations": 10,
         "gen_ancestor_percentage": 0.1,  # Use top n percent of generation for gene extraction
         "fitness_target": 7,
         "shakeup": False,  # Do or don't throw in some random entities each generation
         "shakeup_percentage": 0.05
     }
+    # darwin = GeneticOptimizer(strategy=Trend, params=param_opt_ranges, evolution_rules=evolution_parameters)
+    # darwin.evolve()
 
-    darwin = GeneticOptimizer(params=param_opt_ranges, evolution_rules=evolution_parameters)
-    darwin.evolve(strategy=Trend)
+    # TODO: Look into more MAs for Baseline (NNFX MA video), save each generation to corresponding .csv file
 
     playsound('C:\\Users\\Nick\\Documents\\GitHub\\AlgoTrader\\guh_huh.mp3')
 
     sys.exit()
 
-    # opt = {'atr': [28], 'atr_sl': [2.5], 'atr_tp': [1.0], 'rsi': [8], 'adx_period': [14], 'adx_cutoff': [30]}
-    # test = {'atr': 28, 'atr_sl': 2.5, 'atr_tp': 1.0, 'rsi': 8, 'adx_period': 14, 'adx_cutoff': 30}
-
-    # tester.test(Trend, test, logging=False)
     # result_file = tester.test(Trend, logging=False)
     # # # Open report in chrome
     # chrome = webbrowser.get("C:/Program Files/Google/Chrome/Application/chrome.exe %s")
