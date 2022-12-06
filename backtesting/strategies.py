@@ -1,12 +1,5 @@
 import datetime
-import sys
-import time
-
-import backtrader
 import backtrader as bt
-import joblib
-import pandas as pd
-import ta
 
 
 def first_friday(year, month):
@@ -79,80 +72,41 @@ class Base(bt.Strategy):
                  f'Low: {self.data_low[0]:.4f}, Close: {self.data_close[0]:.4f}, ATR: {ATR:.4f}')
 
 
-class Trend(Base):
-    # DEFAULT STARTING VALS
-    params = (('atr', 14), ('atr_sl', 1.25), ('atr_tp', 2),
-              ('sma', 20), ('ema', 20), ('vidya', 20),  # Baseline?
-              ('confirmation_1', 'didi'), ('confirmation_2', ''),
-              ('didi_mid', 8), ('didi_long', 25),
-              ('win_mult', 1), ('lose_mult', 1), ('win_streak_limit', 1), ('lose_streak_limit', 1),
-              ('macd_me1', 12), ('macd_me2', 26), ('macd_signal', 9),
-              ('rsi', 14), ('adx', 14), ('adx_cutoff', 30))
-    base_name = 'Trend'
-    full_name = ''
+class Indicators:
 
-    def __init__(self, params=None, logging=True):
-        # Instantiate moving averages
-        super().__init__()
-        self.logging = logging
-        self.full_name += self.base_name
+    def __init__(self, data):
+        self.data_close = data.close
+        self.data_open = data.open
+        self.data_high = data.high
+        self.data_low = data.low
 
-        self.units = self.broker.get_cash() / 5
-        self.inital_units = self.broker.get_cash() / 5
-        self.curr_streak = {'win': 0, 'loss': 0}
-
-        # Set parameters and name
-        if params is not None:
-            for param, val in params.items():
-                setattr(self.params, param, val)
-                self.full_name += '__' + param + '-' + str(val)
-        else:
-            params = dir(self.params)
-            for param in list(params):
-                if param[0] != '_' and param not in ['isdefault', 'notdefault']:
-                    val = getattr(self.params, param)
-                    self.full_name += '_' + param + '-' + str(val)
-
-        # Write full name to temp txt file for later retrieval for quantstats title
-        with open('TEMP.txt', 'w') as f:
-            f.write(self.full_name)
-
-        self.sma = bt.indicators.SMA(self.datas[0], period=self.params.sma)
-        self.ema = bt.indicators.ExponentialMovingAverage(self.datas[0], period=self.params.ema)
-        self.macd = bt.indicators.MACD(self.datas[0], period_me1=self.params.macd_me1, period_me2=self.params.macd_me2,
-                                       period_signal=self.params.macd_signal)
-        self.adx = bt.indicators.AverageDirectionalMovementIndex(self.datas[0], period=self.params.adx)
-        self.DIplus = bt.indicators.PlusDirectionalIndicator(self.datas[0], period=self.params.adx)
-        self.DIminus = bt.indicators.MinusDirectionalIndicator(self.datas[0], period=self.params.adx)
-        self.rsi = bt.indicators.RSI_EMA(self.datas[0], period=self.params.rsi)
-        self.prev_didi = 0
-
-    # def adx(self):
-    def get_atr(self, period):
+    def get_atr(self, period, bars_ago=0):
         period_total = 0
-        for i in range(-(period - 1), 1):
+        start, end = -period - bars_ago - 1, 1 - bars_ago
+        for i in range(start, end):
             true_range = self.data_high[i] - self.data_low[i]
             period_total += true_range
         atr = period_total / period
 
         return atr
 
-    def get_sma(self, period):
+    def get_sma(self, period, bars_ago=0):
         period_total = 0
-        for i in range(-(period - 1), 1):
+        start, end = -period - bars_ago - 1, 1 - bars_ago
+        for i in range(start, end):
             period_total += self.data_close[i]
-        # print(self.data_close[0])
-
         sma = period_total / period
+
         return sma
 
-    def get_ema(self, period):
+    def get_ema(self, period, bars_ago=0):
         # EMA calculation has to start somewhere, so use SMA w/ EMA period as origin
         inital_sma = self.get_sma(period)
         previous_emas = [inital_sma]
         weight_multiplier = (2 / (period + 1))
 
-        for i in range(-(period - 1), 1):
+        start, end = -period - bars_ago - 1, 1 - bars_ago
+        for i in range(start, end):
             prev = previous_emas[-1]
             ema = (self.data_close[0] - prev) * weight_multiplier + prev
             previous_emas.append(ema)
@@ -178,7 +132,7 @@ class Trend(Base):
     def get_cmo(self, period, bars_ago=0):
         sum_up, sum_down = 0, 0
         # For VIDYA, to get CMO at each specific bar
-        start, end = -(period - 1) - bars_ago, 1 - bars_ago
+        start, end = -period - bars_ago - 1, 1 - bars_ago
         for i in range(start, end):
             prev_close = self.data_close[i - 1]
             close = self.data_close[i]
@@ -192,43 +146,263 @@ class Trend(Base):
 
     # Pricei x F x ABS(CMOi) + VIDYAi-1 x (1 - F x ABS(CMOi))
     # Chande's Variable Index Dynamic Average
-    def get_vidya(self, period):
+    def get_vidya(self, period, bars_ago=0):
         f = 2 / (self.get_ema(period) + 1)  # Smoothing factor
         prev_vidyas = [self.get_sma(period)]  # SMA or EMA?
-        for i in range(-(period - 1), 1):
+
+        start, end = -period - bars_ago - 1, 1 - bars_ago
+        for i in range(start, end):
             prev = prev_vidyas[-1]
             close = self.data_close[i]
-            cmo = self.get_cmo(period, bars_ago=i)  # Current CMO at this bar
+            cmo = self.get_cmo(period, bars_ago=abs(i))  # Current CMO at this bar
             vidya = close * f * abs(cmo) + prev * (1 - f * abs(cmo))
             prev_vidyas.append(vidya)
 
         current_vidya = prev_vidyas[-1]
         return current_vidya
 
-    def get_adx(self, period):
-        DMpluses, DMminuses = [], []
-        for i in range(-(period - 1), 1):
-            upmove = self.data_high[0] - self.data_high[-1]
-            downmove = self.data_low[-1] - self.data_low[0]
-            DMplus = upmove if (upmove > downmove) and upmove > 0 else 0
-            DMminus = downmove if (downmove > downmove) and downmove > 0 else 0
-
-            DMpluses.append(DMplus)
-            DMminuses.append(DMminus)
-            DMplus_smma = self.get_smma_of_values(period, DMpluses)
-            DMminus_smma = self.get_smma_of_values(period, DMminuses)
-
-            atr = self.get_atr(period)
-            # DIplus = 100 * DMplus_smma / atr
-            # DIminus = 100 * DMminus_smma / atr
-
-    def get_didi(self):
+    def get_didi(self, period):
         # NOTE: Didi crossing BELOW ZERO is a LONG SIGNAL, and vice versa
-        ma_mid = self.get_sma(self.params.didi_mid)
-        ma_long = self.get_sma(self.params.didi_long)
+        ma_mid = self.get_sma(period)
+        ma_long = self.get_sma(period)
         didi_long = (ma_long / ma_mid - 1) * 100
 
         return didi_long
+
+
+# CURRENTLY LOOKING FOR: Baseline
+class NNFX(Base):
+    params = (('baseline', 'sma'),
+              ('atr', 14), ('atr_sl', 1.25), ('atr_tp', 2),
+              ('sma', 20), ('ema', 20), ('vidya', 20), ('ama', 20))
+
+    def __init__(self, logging=False):
+        super().__init__()
+        self.logging = logging
+
+        self.units = self.broker.get_cash() / 5
+        self.inital_units = self.broker.get_cash() / 5
+        self.curr_streak = {'win': 0, 'loss': 0}
+
+        self.Indicators = Indicators(self.datas[0])
+
+        b = self.params.baseline
+
+        if b == 'sma':
+            self.sma = bt.indicators.MovingAverageSimple(self.datas[0], period=self.params.sma)
+        elif b == 'ema':
+            self.ema = bt.indicators.ExponentialMovingAverage(self.datas[0], period=self.params.ema)
+        elif b == 'ama':
+            self.ama = bt.indicators.AdaptiveMovingAverage(self.datas[0], period=self.params.ema)
+
+    def can_trade(self):
+        # Don't do anything if an order is already open
+        if self.order:
+            return False
+
+        date = self.data_datetime.date(0)
+
+        first_friday_of_month = first_friday(date.year, date.month)
+
+        # Don't trade on first firday of month (Non-Farm Payroll)
+        if date.day == first_friday_of_month.day:
+            return False
+
+        curr_hour = self.data_datetime.time(0).hour
+
+        # Outside trading hours
+        # if not (3 < curr_hour < 12):
+        #     if self.position:
+        #         self.log(f'CLOSING OUT DAY {self.data_close[0]:2f}')
+        #         self.order = self.close()
+        #     return
+
+        return True
+
+    def baseline(self):
+        # TODO: WHY IS THIS NEVER TRADING??
+        b = self.params.baseline
+        close = self.data_close[0]
+
+        # Check for signal in past 3 candles
+        recent_signals = []
+        for i in range(-3, 0):
+            recent_candle = self.data_close[i]
+            one_after = self.data_close[i + 1]
+
+            baseline = None
+            bars_ago = abs(i + 1)
+            if b == 'sma':
+                baseline = self.sma[i + 1]
+            elif b == 'ema':
+                baseline = self.ema[i + 1]
+            elif b == 'vidya':
+                baseline = self.Indicators.get_vidya(self.params.vidya, bars_ago=bars_ago)
+            elif b == 'ama':
+                baseline = self.ama[i + 1]
+
+            if recent_candle < baseline < one_after:  # Cross above
+                recent_signals.append("LONG")
+            elif recent_candle > baseline > one_after:  # Cross below
+                recent_signals.append("SHORT")
+            else:
+                recent_signals.append("NONE")
+
+        buy, sell = False, False
+        if "LONG" in recent_signals and "SHORT" not in recent_signals:
+            buy = True,
+            sell = False
+        elif "SHORT" in recent_signals and "LONG" not in recent_signals:
+            sell = True
+            buy = False
+
+        if close > baseline:
+            price_where = "PRICE_ABOVE"
+        else:
+            price_where = "PRICE_BELOW"
+
+        return buy, sell, price_where
+
+    def make_prediction(self):
+        # Variables
+        prediction = 0
+
+        # Get indicators
+        BASELINE_BUY, BASELINE_SELL, BASELINE_WHERE = self.baseline()
+        if BASELINE_BUY:
+            prediction = 1
+        elif BASELINE_SELL:
+            prediction = -1
+
+        return prediction
+
+    def check_stop_take(self):
+        close = self.data_close[0]
+        stop, take = False, False
+        if self.position.size > 0:
+            if close >= self.tp:
+                take = True
+            elif close <= self.sl:
+                stop = True
+        elif self.position.size < 0:
+            if close <= self.tp:
+                take = True
+            elif close >= self.sl:
+                stop = True
+        if take:
+            self.log(f'TAKE PROFIT HIT {self.data_close[0]:2f}')
+            self.order = self.close()
+            self.update_streak('win')
+        elif stop:
+            self.log(f'STOP LOSS HIT {self.data_close[0]:2f}')
+            self.order = self.close()
+            self.update_streak('loss')
+
+        if stop or take:
+            return True
+
+    def update_streak(self, streak):
+        self.curr_streak[streak] += 1
+        if streak == 'loss':
+            self.curr_streak['win'] = 0
+        elif streak == 'win':
+            self.curr_streak['loss'] = 0
+
+    def set_sl_tp(self, prediction):
+        close = self.data_close[0]
+        ATR = self.Indicators.get_atr(self.params.atr)
+        if prediction == 1:
+            self.sl = close - (ATR * self.params.atr_sl)
+            self.tp = close + (ATR * self.params.atr_tp)
+        elif prediction == -1:
+            self.sl = close + (ATR * self.params.atr_sl)
+            self.tp = close - (ATR * self.params.atr_tp)
+
+    def next(self):
+
+        # See if trade conditions are all met
+        if not self.can_trade():
+            return
+
+        # No open position, make an order
+        if not self.position:
+
+            prediction = self.make_prediction()
+
+            self.set_sl_tp(prediction)
+
+            close = self.data_close[0]
+
+            if prediction == 1:
+                self.log(f'BUY CREATE {self.data_close[0]:2f}')
+                self.order = self.buy(size=self.units, price=close)
+            elif prediction == -1:
+                self.log(f'SELL CREATE {self.data_close[0]:2f}')
+                self.order = self.sell(size=self.units, price=close)
+        else:
+            # We're in the market, check for SL/TP hit and act accordingly
+            exited = self.check_stop_take()
+            if exited:
+                return
+
+            BASELINE_BUY, BASELINE_SELL, BASELINE_WHERE = self.baseline()
+            # Check if price crosses baseline unfavorably
+            if self.position.size > 0 and BASELINE_WHERE == "PRICE_BELOW":
+                self.order = self.close()
+            elif self.position.size < 0 and BASELINE_WHERE == "PRICE_ABOVE":
+                self.order = self.close()
+
+    # Calls after backtest completes
+    def stop(self):
+        pass
+
+
+class Trend(Base):
+    # DEFAULT STARTING VALS
+    params = (('atr', 14), ('atr_sl', 1.25), ('atr_tp', 2),
+              ('sma', 20), ('ema', 20), ('vidya', 20),  # Baseline?
+              ('confirmation_1', 'didi'), ('confirmation_2', ''),
+              ('didi_mid', 8), ('didi_long', 25),
+              ('win_mult', 1), ('lose_mult', 1), ('win_streak_limit', 1), ('lose_streak_limit', 1),
+              ('macd_me1', 12), ('macd_me2', 26), ('macd_signal', 9),
+              ('rsi', 14), ('adx', 14), ('adx_cutoff', 30))
+    base_name = 'Trend'
+    full_name = ''
+
+    def __init__(self, params=None, logging=True):
+        super().__init__()
+        self.logging = logging
+        self.full_name += self.base_name
+
+        self.units = self.broker.get_cash() / 5
+        self.inital_units = self.broker.get_cash() / 5
+        self.curr_streak = {'win': 0, 'loss': 0}
+
+        self.Indicators = Indicators(self.datas[0])
+
+        # Set parameters and name
+        if params is not None:
+            for param, val in params.items():
+                setattr(self.params, param, val)
+                self.full_name += '__' + param + '-' + str(val)
+        else:
+            params = dir(self.params)
+            for param in list(params):
+                if param[0] != '_' and param not in ['isdefault', 'notdefault']:
+                    val = getattr(self.params, param)
+                    self.full_name += '_' + param + '-' + str(val)
+
+        # Write full name to temp txt file for later retrieval for quantstats title
+        with open('TEMP.txt', 'w') as f:
+            f.write(self.full_name)
+
+        self.macd = bt.indicators.MACD(self.datas[0], period_me1=self.params.macd_me1, period_me2=self.params.macd_me2,
+                                       period_signal=self.params.macd_signal)
+        self.adx = bt.indicators.AverageDirectionalMovementIndex(self.datas[0], period=self.params.adx)
+        self.DIplus = bt.indicators.PlusDirectionalIndicator(self.datas[0], period=self.params.adx)
+        self.DIminus = bt.indicators.MinusDirectionalIndicator(self.datas[0], period=self.params.adx)
+        self.rsi = bt.indicators.RSI_EMA(self.datas[0], period=self.params.rsi)
+        self.prev_didi = 0
 
     def update_streak(self, streak):
         self.curr_streak[streak] += 1
@@ -240,16 +414,17 @@ class Trend(Base):
     def baseline(self):
         # baseline = self.get_ema(self.params.ema)
         # baseline = self.get_sma(self.params.sma)
-        baseline = self.get_vidya(self.params.vidya)
+        baseline = self.Indicators.get_vidya(self.params.vidya)
         close = self.data_close[0]
 
         # Check for signal in past 3 candles
         recent_signals = []
-        for i in range(-2, 1):
+        for i in range(-3, 0):
             recent_candle = self.data_close[i]
-            if recent_candle < baseline < close:  # Cross above
+            one_after = self.data_close[i + 1]
+            if recent_candle < baseline < one_after:  # Cross above
                 recent_signals.append("LONG")
-            elif recent_candle > baseline > close:  # Cross below
+            elif recent_candle > baseline > one_after:  # Cross below
                 recent_signals.append("SHORT")
             else:
                 recent_signals.append("NONE")
@@ -352,20 +527,12 @@ class Trend(Base):
         if stop or take:
             return True
 
-    # Iterates through bars
-    def next(self):
-
-        # See if trade conditions are all met
-        if not self.can_trade():
-            return
-
+    def make_prediction(self):
         # Variables
         prediction = 0
         uptrend, downtrend = False, False
-        close = self.data_close[0]
 
         # Get indicators
-        ATR = self.get_atr(self.params.atr)
         BASELINE_BUY, BASELINE_SELL, BASELINE_WHERE = self.baseline()
         C1_BUY, C1_SELL, C1_TREND = self.confirmation_1(self.params.confirmation_1)
         C2_BUY, C2_SELL, C2_TREND = C1_BUY, C1_SELL, C1_TREND  # TODO
@@ -385,20 +552,40 @@ class Trend(Base):
         elif (SELL_SIGNAL or BASELINE_SELL or C1_SELL) and downtrend:
             prediction = -1
 
+        return prediction
+
+    def set_sl_tp(self, prediction):
+        close = self.data_close[0]
+        ATR = self.Indicators.get_atr(self.params.atr)
+        if prediction == 1:
+            self.sl = close - (ATR * self.params.atr_sl)
+            self.tp = close + (ATR * self.params.atr_tp)
+        elif prediction == -1:
+            self.sl = close + (ATR * self.params.atr_sl)
+            self.tp = close - (ATR * self.params.atr_tp)
+
+    # Iterates through bars
+    def next(self):
+
+        # See if trade conditions are all met
+        if not self.can_trade():
+            return
+
         # No open position, make an order
         if not self.position:
+
+            prediction = self.make_prediction()
+
+            # Set SL and TP
+            self.set_sl_tp(prediction)
+
+            close = self.data_close[0]
+
             if prediction == 1:
                 self.log(f'BUY CREATE {self.data_close[0]:2f}')
-                # Keep track of the created order to avoid a 2nd order
-                # self.order = self.buy(size=self.units)
-                self.sl = close - (ATR * self.params.atr_sl)
-                self.tp = close + (ATR * self.params.atr_tp)
                 self.order = self.buy(size=self.units, price=close)
             elif prediction == -1:
                 self.log(f'SELL CREATE {self.data_close[0]:2f}')
-                # Keep track of the created order to avoid a 2nd order
-                self.sl = close + (ATR * self.params.atr_sl)
-                self.tp = close - (ATR * self.params.atr_tp)
                 self.order = self.sell(size=self.units, price=close)
         else:
             # We're in the market, check for SL/TP hit and act accordingly
@@ -406,6 +593,7 @@ class Trend(Base):
             if exited:
                 return
 
+            BASELINE_BUY, BASELINE_SELL, BASELINE_WHERE = self.baseline()
             # Check if price crosses baseline unfavorably
             if self.position.size > 0 and BASELINE_WHERE == "PRICE_BELOW":
                 self.order = self.close()
