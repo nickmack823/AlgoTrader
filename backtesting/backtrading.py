@@ -757,7 +757,7 @@ if __name__ == "__main__":
 
     # differential_evolution()
 
-    for b in [['sma'], ['ema'], ['ama']]:
+    for b in [['sma'], ['ema'], ['sma']]:
         baseline_param_ranges = {
             'atr': numpy.arange(4, 32, step=2),
             'atr_sl': numpy.arange(1, 4.25, step=0.25),

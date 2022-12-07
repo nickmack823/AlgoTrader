@@ -187,13 +187,14 @@ class NNFX(Base):
         self.Indicators = Indicators(self.datas[0])
 
         b = self.params.baseline
+        self.baseline = None
 
         if b == 'sma':
-            self.sma = bt.indicators.MovingAverageSimple(self.datas[0], period=self.params.sma)
+            self.baseline = bt.indicators.MovingAverageSimple(self.datas[0], period=self.params.sma)
         elif b == 'ema':
-            self.ema = bt.indicators.ExponentialMovingAverage(self.datas[0], period=self.params.ema)
+            self.baseline = bt.indicators.ExponentialMovingAverage(self.datas[0], period=self.params.ema)
         elif b == 'ama':
-            self.ama = bt.indicators.AdaptiveMovingAverage(self.datas[0], period=self.params.ema)
+            self.baseline = bt.indicators.AdaptiveMovingAverage(self.datas[0], period=self.params.ema)
 
     def can_trade(self):
         # Don't do anything if an order is already open
@@ -219,7 +220,7 @@ class NNFX(Base):
 
         return True
 
-    def baseline(self):
+    def check_baseline(self):
         # TODO: WHY IS THIS NEVER TRADING??
         b = self.params.baseline
         close = self.data_close[0]
@@ -230,16 +231,8 @@ class NNFX(Base):
             recent_candle = self.data_close[i]
             one_after = self.data_close[i + 1]
 
-            baseline = None
+            baseline = self.baseline[i + 1]
             bars_ago = abs(i + 1)
-            if b == 'sma':
-                baseline = self.sma[i + 1]
-            elif b == 'ema':
-                baseline = self.ema[i + 1]
-            elif b == 'vidya':
-                baseline = self.Indicators.get_vidya(self.params.vidya, bars_ago=bars_ago)
-            elif b == 'ama':
-                baseline = self.ama[i + 1]
 
             if recent_candle < baseline < one_after:  # Cross above
                 recent_signals.append("LONG")
@@ -268,7 +261,7 @@ class NNFX(Base):
         prediction = 0
 
         # Get indicators
-        BASELINE_BUY, BASELINE_SELL, BASELINE_WHERE = self.baseline()
+        BASELINE_BUY, BASELINE_SELL, BASELINE_WHERE = self.check_baseline()
         if BASELINE_BUY:
             prediction = 1
         elif BASELINE_SELL:
@@ -345,7 +338,7 @@ class NNFX(Base):
             if exited:
                 return
 
-            BASELINE_BUY, BASELINE_SELL, BASELINE_WHERE = self.baseline()
+            BASELINE_BUY, BASELINE_SELL, BASELINE_WHERE = self.check_baseline()
             # Check if price crosses baseline unfavorably
             if self.position.size > 0 and BASELINE_WHERE == "PRICE_BELOW":
                 self.order = self.close()

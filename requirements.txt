@@ -14,3 +14,4 @@ backtrader~=1.9.76.123
 ta~=0.10.2
 QuantStats~=0.0.59
 playsound~=1.2.2
+coloredlogs~=15.0.1
