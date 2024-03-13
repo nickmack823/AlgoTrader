@@ -5,3 +5,10 @@
 *.html
 *.txt
 *.joblib
+*.cfg
+*.txt
+*.txt
+*.pyc
+*.joblib
+*.xml
+*.iml

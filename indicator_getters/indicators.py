@@ -110,11 +110,11 @@ class IndicatorCalculator:
     def stdev(self,):
         self.data.ta.tos_stdevall(append=True)
 
-    def atr(self):
-        self.data.ta.get_atr(append=True)
+    def atr(self, length=14):
+        self.data.ta.get_atr(append=True, length=length)
 
-    def rsi(self):
-        self.data.ta.rsi(append=True)
+    def rsi(self, length=14):
+        self.data.ta.rsi(append=True, length=length)
 
     def adosc(self, periods=(2, 3, 4, 5)):
         for period in periods:
@@ -123,8 +123,8 @@ class IndicatorCalculator:
     def vol_profile(self):
         self.data.ta.vp(append=True)
 
-    def adx(self):
-        self.data.ta.adx(append=True)
+    def adx(self, length=14):
+        self.data.ta.adx(append=True, length=length)
 
     def chaikin(self):
         self.data.ta.cmf(append=True)
@@ -146,7 +146,7 @@ class IndicatorCalculator:
         for func in functions:
             func()
 
-        # self.display_data()
+        self.display_data()
         # print('Features calculated.')
 
     def get_data(self):

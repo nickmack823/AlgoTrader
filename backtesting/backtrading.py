@@ -17,7 +17,8 @@ from os.path import exists
 from indicator_getters.indicators import IndicatorCalculator
 from strategies import *
 
-N_CORES = multiprocessing.cpu_count()  # Number of logical cores on pc
+N_CORES = multiprocessing.cpu_count() - 4  # Number of logical cores on pc
+# N_CORES = 3
 
 LOGGER = None
 
@@ -71,7 +72,7 @@ def build_cerebro(data, optimizing=False):
     data = bt.feeds.PandasData(dataname=data)
     cerebro.adddata(data)
 
-    cerebro.broker.setcash(5000)
+    cerebro.broker.setcash(1000)
 
     # Add trade analyzer
     cerebro.addanalyzer(bt.analyzers.TradeAnalyzer, _name='trade_analyzer')
@@ -117,6 +118,7 @@ def remove_tested_combos(tested_combos, all_combos_subset, out_q):
     for param_combo in all_combos_subset.copy():
         if str(param_combo) in tested_combos:
             all_combos_subset.remove(param_combo)
+
     out_q.put(all_combos_subset)
 
 
@@ -135,12 +137,27 @@ def get_strategy_params(strategy):
 def get_param_combos(params_to_test, test_path):
     all_combos = combinate(params_to_test)
 
+    # So we know which symbol we're testing
+    for c in all_combos:
+        c['symbol'] = symbol
+
     # Get any existing tests
     if exists(test_path):
         param_combos = []
         existing_csv = pd.read_csv(test_path, index_col=0)
-        tested_combos = pd.Series(existing_csv['params'])
-        tested_combos = [str(x) for x in tested_combos]
+        tested_combos_series = pd.Series(existing_csv['params'])
+        tested_combos_symbols = pd.Series(existing_csv['symbol'])
+
+        # Get symbol combo was tested on to allow for same combos on different pair
+        tested_combos = []
+        i = 0
+        while i < len(tested_combos_series):
+            combo = tested_combos_series[i]
+            combo_symbol = tested_combos_symbols[i]
+            combo_dict = json.loads(combo.replace("'", '"'))
+            combo_dict['symbol'] = combo_symbol
+            tested_combos.append(str(combo_dict))
+            i += 1
 
         # Remove already tested combos
         LOGGER.info('Removing tested combos...')
@@ -162,6 +179,11 @@ def get_param_combos(params_to_test, test_path):
 
     # TODO: See why combos not being removed?
     LOGGER.info(f'Removed {len(all_combos) - len(param_combos)} combinations.')
+
+    # Remove the "symbol" parameter from the combo (was only needed to know if it's been tested)
+    for c in param_combos:
+        param_combos[param_combos.index(c)].pop("symbol")
+
     return param_combos
 
 
@@ -268,10 +290,19 @@ class Data(tpqoa.tpqoa):
         self.start = start
         self.end = end
 
+        self.tick_granularity = "M1"
+
         self.dirname = os.path.dirname(__file__)
-        self.data_path = f"forex_data/{self.symbol}_{self.start}_{self.end}_{self.timeframe}.csv"
+        symbol_dir = f"forex_data/{self.symbol}"
+        if not exists(symbol_dir):
+            os.mkdir(symbol_dir)
+
+        self.data_path = f"forex_data/{self.symbol}/_{self.start}_{self.end}_{self.timeframe}.csv"
+        self.tick_data_path = f"forex_data/{self.symbol}/_{self.start}_{self.end}_{self.tick_granularity}.csv"
 
         self.data = self.get_data()
+        # self.tick_data = self.get_tick_data()
+        # print(self.tick_data.head(10))
 
     def get_data(self):
         LOGGER.info(
@@ -297,7 +328,35 @@ class Data(tpqoa.tpqoa):
             LOGGER.info('(Data Handler) Data retrieved.')
             data = mid.dropna()
             data.to_csv(self.data_path)
+
             return data
+
+    def get_tick_data(self):
+        LOGGER.info(f'(Data Handler) Getting tick data: instrument={self.symbol}, start={self.start}, end={self.end}, '
+                    f'timeframe={self.tick_granularity}')
+        if exists(self.tick_data_path):
+            return pd.read_csv(self.tick_data_path, parse_dates=['time'], index_col='time').dropna()
+        else:
+            api = tpqoa.tpqoa(os.path.join(self.dirname, '../oanda.cfg'))
+            mid = api.get_history(instrument=self.symbol, start=self.start, end=self.end,
+                                  granularity=self.tick_granularity,
+                                  price='M')
+            bid = api.get_history(instrument=self.symbol, start=self.start, end=self.end,
+                                  granularity=self.tick_granularity,
+                                  price='B')
+            ask = api.get_history(instrument=self.symbol, start=self.start, end=self.end,
+                                  granularity=self.tick_granularity,
+                                  price='A')
+            mid['bid'] = bid.c
+            mid['ask'] = ask.c
+            mid['spread'] = (bid.c - ask.c).to_frame()
+            mid.rename(columns={'o': 'open', 'h': 'high', 'l': 'low', 'c': "close"}, inplace=True)
+            # mid["returns"] = np.log(mid.close / mid.close.shift(1))
+            LOGGER.info('(Data Handler) Data retrieved.')
+            tick_data = mid.dropna()
+            tick_data.to_csv(self.tick_data_path)
+
+            return tick_data
 
     def get_features_data(self):
         LOGGER.info('(Data Handler) Getting features...')
@@ -309,10 +368,9 @@ class Data(tpqoa.tpqoa):
 
     def test_dir(self):
         # Make necessary directories
-        sym_dir = f"tests/{self.symbol}"
-        tf_dir = sym_dir + f"/{self.timeframe}"
+        tf_dir = f"tests/{self.timeframe}"
         dates_dir = tf_dir + f"/{self.start} to {self.end}"
-        for d in [sym_dir, tf_dir, dates_dir]:
+        for d in [tf_dir, dates_dir]:
             if not exists(d):
                 os.mkdir(d)
 
@@ -323,7 +381,11 @@ class Data(tpqoa.tpqoa):
         LOGGER.info(f'(Data Handler) Saving {len(results)} test results...')
         results_df = None
         for result in results.copy():
+            result["symbol"] = self.symbol
             curr_df = pd.DataFrame(data=result, index=[0])
+            symbol_col = curr_df.pop('symbol')
+            curr_df.insert(0, 'symbol', symbol_col)  # Put symbol column in first position
+
             results_df = curr_df if results_df is None else results_df.append(curr_df, ignore_index=True)
             results.pop(results.index(result))
 
@@ -338,6 +400,10 @@ class Data(tpqoa.tpqoa):
             results_df = results_df.sort_values('sqn', ascending=False)
             results_df.to_csv(self.test_path)
         LOGGER.info('(Data Handler) Save complete.')
+
+    def get_results(self):
+        results_df = pd.read_csv(self.test_path, index_col=0)
+        return results_df
 
     def set_test_path(self, test_path):
         LOGGER.info(f"(Data Handler) Setting test path: {test_path}")
@@ -460,6 +526,9 @@ class GeneticOptimizer:
         unused_offspring = possible_offspring.difference(self.all_previous_solutions)
         # TODO
         print(len(possible_offspring), len(unused_offspring))
+        num_unused = len(unused_offspring)
+        if num_unused < self.population_size:
+            solutions_from_genes = num_unused
 
         # Select from random possible offsprings
         # Entity w/ key-value == gene-value
@@ -476,7 +545,14 @@ class GeneticOptimizer:
             shakeup_count = round(self.population_size * self.shakeup_percentage)
             # Add random sample to next generation
             next_generation.extend(random.sample(self.all_combos, shakeup_count))
-            LOGGER.info(f"Tossed in {shakeup_count} random solutions for next generation.")
+            LOGGER.info(f"Tossed in {shakeup_count} random solutions for next generation. (shakeup)")
+
+        if num_unused < self.population_size:
+            num_to_fill = self.population_size - num_unused
+            next_generation.extend(random.sample(self.all_combos, num_to_fill))
+            LOGGER.info(f"Tossed in {num_to_fill} random solutions for next generation. (unused < pop)")
+
+        print(len(next_generation))
 
         return next_generation
 
@@ -609,7 +685,7 @@ class Tester:
         combo_count = len(param_combos)
         results = []
         tests_done = 0
-        num_to_save = 100 if combo_count >= 1000 else combo_count
+        num_to_save = 250 if combo_count >= 1000 else combo_count
         while tests_done != combo_count:
 
             if tests_done % 100 == 0:
@@ -703,7 +779,7 @@ class Tester:
 
 def do_opt(param_ranges, strat):
     # Set path for tests
-    param_names, ___ = zip(*param_ranges.items())
+    param_names, ___ = zip(*param_opt_ranges.items())
     path = data_handler.test_dir() + f"/{param_names}.csv"
     data_handler.set_test_path(path)
 
@@ -725,49 +801,103 @@ if __name__ == "__main__":
     # TODO: Build up one piece at a time (baseline, confirmation, etc)
     # Lookup TP/SL from NNFX
 
-    clock_start = timer()
+    # TODO: Consider using ADX strat/any strat on multiple pairs at a time
+    # This way, theoretically don't need a super high SQN, just need to be profitable
 
-    symbol, timeframe, start, end = "AUD_NZD", "M30", "2022-01-01", "2022-11-04"
-
+    symbol, timeframe, start, end = "AUD_NZD", "M5", "2020-01-01", "2022-11-04"
     LOGGER = get_logger()
-    LOGGER.info((symbol, timeframe, start, end))
 
     # Tester and GeneticOptimizer get data from this
     data_handler = Data()
 
-    # Params to optimize (FOR TREND)
-    param_opt_ranges = {
-        'atr': numpy.arange(4, 32, step=2),
-        'atr_sl': numpy.arange(1, 4.25, step=0.25),
-        'atr_tp': numpy.arange(1, 4.25, step=0.25),
-        'rsi': numpy.arange(4, 30, step=2),
-        'adx': numpy.arange(4, 30, step=2),
-        'adx_cutoff': numpy.arange(25, 40, step=5),
-        'vidya': numpy.arange(20, 100, step=2)
-    }
+    clock_start = timer()
 
-    evolution_parameters = {
-        "population_size": 1000,  # Minimum pop size is 100 for proper result formatting
-        "generations": 10,
-        "gen_ancestor_percentage": 0.1,  # Use top n percent of generation for gene extraction
-        "fitness_target": 7,
-        "do_shakeup": False,  # Do or don't throw in some random entities each generation
-        "shakeup_percentage": 0.05
-    }
+    pairs = []
+    with open("pairs.txt", "r") as f:
+        pairs.extend(f.readlines())
 
-    # differential_evolution()
+    for p in pairs:
+        pairs[pairs.index(p)] = p.strip()
 
-    for b in [['sma'], ['ema'], ['sma']]:
-        baseline_param_ranges = {
-            'atr': numpy.arange(4, 32, step=2),
-            'atr_sl': numpy.arange(1, 4.25, step=0.25),
-            'atr_tp': numpy.arange(1, 4.25, step=0.25),
-            'baseline': b,
-            b[0]: numpy.arange(10, 52, step=2)
+    strategy = Trend
+    for pair in pairs:
+        symbol = pair
+
+        quote_currency = pair.split("_")[1]
+
+        with open(f"CURRENT_QUOTE_CURRENCY.txt", "w") as f:
+            f.write(quote_currency)
+
+        data_handler = Data()
+
+        LOGGER.info((symbol, timeframe, start, end))
+
+        # # MACD
+        # param_opt_ranges = {
+        #     'atr': numpy.arange(10, 30, step=2),
+        #     'atr_sl': numpy.arange(1, 2.5, step=0.25),
+        #     'atr_tp': numpy.arange(1, 2.5, step=0.25),
+        #     # 'atr': [14],
+        #     # 'atr_sl': [1.0],
+        #     # 'atr_tp': [1.0],
+        #     "macd_fast": [12],
+        #     "macd_slow": [26],
+        #     "macd_signal": [9]
+        # }
+
+        param_opt_ranges = {
+            # 'atr': numpy.arange(14, 30, step=2),
+            # 'atr_sl': numpy.arange(1, 3.25, step=0.25),
+            # 'atr_tp': numpy.arange(1, 3.25, step=0.25),
+            'atr': numpy.arange(14, 26, step=2),
+            'atr_sl': [2.0],
+            'atr_tp': [1.5],
+            'rsi': numpy.arange(8, 20, step=2),
+            'adx': numpy.arange(14, 26, step=2),
+            'adx_cutoff': [30],
         }
-        do_evolve(param_ranges=baseline_param_ranges, evolve_rules=evolution_parameters, strat=NNFX)
 
-    playsound('C:\\Users\\Nick\\Documents\\GitHub\\AlgoTrader\\guh_huh.mp3')
+        do_opt(param_opt_ranges, strategy)
+
+    # Get best params combos for each pair
+    # results = data_handler.get_results()
+
+
+    # Params to optimize (FOR TREND)
+    # param_opt_ranges = {
+    #     'atr': numpy.arange(4, 32, step=2),
+    #     'atr_sl': numpy.arange(1, 4.25, step=0.25),
+    #     'atr_tp': numpy.arange(1, 4.25, step=0.25),
+    #     'rsi': numpy.arange(4, 30, step=2),
+    #     'adx': numpy.arange(4, 30, step=2),
+    #     'adx_cutoff': numpy.arange(25, 40, step=5),
+    #     'vidya': numpy.arange(20, 100, step=2)
+    # }
+    #
+    # evolution_parameters = {
+    #     "population_size": 5000,  # Minimum pop size is 100 for proper result formatting
+    #     "generations": 7,
+    #     "gen_ancestor_percentage": 0.1,  # Use top n percent of generation for gene extraction
+    #     "fitness_target": 7,
+    #     "do_shakeup": True,  # Do or don't throw in some random entities each generation
+    #     "shakeup_percentage": 0.05
+    # }
+
+    # param_opt_ranges = {
+    #     'atr': [28],
+    #     'atr_sl': [2.5],
+    #     'atr_tp': [1.0],
+    #     'rsi': [8],
+    #     'adx': [14],
+    #     'adx_cutoff': [30],
+    #     "macd_slow": numpy.arange(26, 52, step=2),
+    #     "macd_fast": numpy.arange(12, 30, step=2),
+    #     "macd_signal": numpy.arange(9, 25, step=2)
+    # }
+
+    # do_opt(param_opt_ranges, MACD)
+
+    playsound('C:\\Users\\sm598\\OneDrive\\Documents\\GitHub\\AlgoTrader\\backtesting\\guh_huh.mp3')
 
     LOGGER.info("\n=== TIME ELAPSED ===")
     LOGGER.info(datetime.timedelta(seconds=timer() - clock_start))

@@ -1,5 +1,5 @@
 joblib==1.1.0
-matplotlib==3.4.3
+matplotlib~=3.6.2
 numpy==1.21.3
 pandas==1.3.4
 pandas_ta==0.3.14b0
@@ -15,3 +15,4 @@ ta~=0.10.2
 QuantStats~=0.0.59
 playsound~=1.2.2
 coloredlogs~=15.0.1
+requests~=2.28.1

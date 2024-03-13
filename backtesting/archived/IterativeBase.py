@@ -45,7 +45,7 @@ class IterativeBase:
         self.profits = []
 
         if 'model' in self.strategy:
-            self.model = joblib.load("../EUR_USD-2000-01-01-2022-10-22-M5.joblib")
+            self.model = joblib.load("../../EUR_USD-2000-01-01-2022-10-22-M5.joblib")
             # self.model = self.get_model()
 
         self.get_data()
@@ -72,7 +72,7 @@ class IterativeBase:
         if exists(self.data_path):
             self.data = pd.read_csv(self.data_path, parse_dates=['time'], index_col='time').dropna()
         else:
-            api = tpqoa.tpqoa(os.path.join(self.dirname, '../oanda.cfg'))
+            api = tpqoa.tpqoa(os.path.join(self.dirname, '../../oanda.cfg'))
             mid = api.get_history(instrument=self.symbol, start=self.start, end=self.end, granularity=self.timeframe,
                                   price='M')
             bid = api.get_history(instrument=self.symbol, start=self.start, end=self.end, granularity=self.timeframe,
